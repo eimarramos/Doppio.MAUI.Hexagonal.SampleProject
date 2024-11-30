@@ -1,5 +1,8 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using UI.ViewModels;
+using UI.Views.Home;
+using UI.Views.Login;
 
 namespace UI
 {
@@ -13,15 +16,17 @@ namespace UI
                 .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Poppins-Regular.ttf", "PoppinsRegular");
+                    fonts.AddFont("Poppins-Medium.ttf", "PoppinsMedium");
+                    fonts.AddFont("Poppins-SemiBold.ttf", "PoppinsSemiBold");
+                    fonts.AddFont("MuseoModerno-Medium.ttf", "MuseoModernoMedium");
                 })
                 .RegisterServices()
                 .RegisterViewModels()
                 .RegisterViews(); ;
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             var app = builder.Build();
@@ -31,20 +36,23 @@ namespace UI
 
         public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
         {
- 
+
 
             return mauiAppBuilder;
         }
 
         public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
         {
-
+            mauiAppBuilder.Services.AddSingleton<LoginViewModel>();
+            mauiAppBuilder.Services.AddSingleton<HomeViewModel>();
 
             return mauiAppBuilder;
         }
 
         public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
         {
+            mauiAppBuilder.Services.AddSingleton<LoginPage>();
+            mauiAppBuilder.Services.AddSingleton<HomePage>();
 
             return mauiAppBuilder;
         }
