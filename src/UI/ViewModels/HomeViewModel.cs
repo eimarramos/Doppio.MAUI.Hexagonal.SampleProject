@@ -1,6 +1,6 @@
 ﻿namespace UI.ViewModels
 {
-    public class HomeViewModel : BaseViewModel
+    public partial class HomeViewModel : BaseViewModel
     {
         public HomeViewModel()
         {

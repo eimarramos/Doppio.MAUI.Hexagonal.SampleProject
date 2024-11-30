@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using UI.ViewModels;
 using UI.Views.Home;
 using UI.Views.Login;
+using UI.Views.Promotions;
 
 namespace UI
 {
@@ -45,6 +46,7 @@ namespace UI
         {
             mauiAppBuilder.Services.AddSingleton<LoginViewModel>();
             mauiAppBuilder.Services.AddSingleton<HomeViewModel>();
+            mauiAppBuilder.Services.AddSingleton<PromotionsViewModel>();
 
             return mauiAppBuilder;
         }
@@ -53,6 +55,7 @@ namespace UI
         {
             mauiAppBuilder.Services.AddSingleton<LoginPage>();
             mauiAppBuilder.Services.AddSingleton<HomePage>();
+            mauiAppBuilder.Services.AddSingleton<PromotionsPage>();
 
             return mauiAppBuilder;
         }

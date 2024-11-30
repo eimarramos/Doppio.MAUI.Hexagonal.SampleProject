@@ -5,11 +5,21 @@
        xmlns:local="clr-namespace:UI"
        xmlns:login="clr-namespace:UI.Views.Login"
        xmlns:home="clr-namespace:UI.Views.Home"
+       xmlns:promotions="clr-namespace:UI.Views.Promotions"
        Shell.FlyoutBehavior="Disabled"
        Title="UI">
 
     <ShellContent ContentTemplate="{DataTemplate login:LoginPage}"
                   Route="Login" />
-    <ShellContent ContentTemplate="{DataTemplate home:HomePage}"
-                  Route="Home" />
+
+    <TabBar>
+        <Tab Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate home:HomePage}"
+                          Route="Home" />
+        </Tab>
+        <Tab Icon="promotions.png">
+            <ShellContent ContentTemplate="{DataTemplate promotions:PromotionsPage}"
+                          Route="Promotions" />
+        </Tab>
+    </TabBar>
 </Shell>
