@@ -1,8 +1,11 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using UI.ViewModels;
+using UI.Views.Cart;
 using UI.Views.Home;
 using UI.Views.Login;
+using UI.Views.Notifications;
+using UI.Views.Profile;
 using UI.Views.Promotions;
 
 namespace UI
@@ -47,6 +50,9 @@ namespace UI
             mauiAppBuilder.Services.AddSingleton<LoginViewModel>();
             mauiAppBuilder.Services.AddSingleton<HomeViewModel>();
             mauiAppBuilder.Services.AddSingleton<PromotionsViewModel>();
+            mauiAppBuilder.Services.AddSingleton<NotificationsViewModel>();
+            mauiAppBuilder.Services.AddSingleton<ProfileViewModel>();
+            mauiAppBuilder.Services.AddSingleton<CartViewModel>();
 
             return mauiAppBuilder;
         }
@@ -56,6 +62,9 @@ namespace UI
             mauiAppBuilder.Services.AddSingleton<LoginPage>();
             mauiAppBuilder.Services.AddSingleton<HomePage>();
             mauiAppBuilder.Services.AddSingleton<PromotionsPage>();
+            mauiAppBuilder.Services.AddSingleton<NotificationsPage>();
+            mauiAppBuilder.Services.AddSingleton<ProfilePage>();
+            mauiAppBuilder.Services.AddSingleton<CartPage>();
 
             return mauiAppBuilder;
         }

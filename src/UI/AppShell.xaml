@@ -6,20 +6,35 @@
        xmlns:login="clr-namespace:UI.Views.Login"
        xmlns:home="clr-namespace:UI.Views.Home"
        xmlns:promotions="clr-namespace:UI.Views.Promotions"
-       Shell.FlyoutBehavior="Disabled"
-       Title="UI">
+       xmlns:notifications="clr-namespace:UI.Views.Notifications"
+       xmlns:cart="clr-namespace:UI.Views.Cart"
+       xmlns:profile="clr-namespace:UI.Views.Profile"
+       Shell.FlyoutBehavior="Disabled">
 
     <ShellContent ContentTemplate="{DataTemplate login:LoginPage}"
                   Route="Login" />
 
     <TabBar>
-        <Tab Icon="home.png">
-            <ShellContent ContentTemplate="{DataTemplate home:HomePage}"
-                          Route="Home" />
-        </Tab>
         <Tab Icon="promotions.png">
             <ShellContent ContentTemplate="{DataTemplate promotions:PromotionsPage}"
-                          Route="Promotions" />
+                          Route="promotions" />
+        </Tab>
+        <Tab Icon="cart.png">
+            <ShellContent ContentTemplate="{DataTemplate cart:CartPage}"
+                          Title="Cart"
+                          Route="cart" />
+        </Tab>
+        <Tab Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate home:HomePage}"
+                          Route="home" />
+        </Tab>
+        <Tab Icon="notifications.png">
+            <ShellContent ContentTemplate="{DataTemplate notifications:NotificationsPage}"
+                          Route="notifications" />
+        </Tab>
+        <Tab Icon="user.png">
+            <ShellContent ContentTemplate="{DataTemplate profile:ProfilePage}"
+                          Route="profile" />
         </Tab>
     </TabBar>
 </Shell>
