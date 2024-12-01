@@ -4,6 +4,7 @@
     {
         public HomeViewModel()
         {
+            Title = "Home";
         }
     }
 }

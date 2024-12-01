@@ -3,7 +3,8 @@
     public partial class PromotionsViewModel : BaseViewModel
     {
         public PromotionsViewModel()
-        {
+        { 
+            Title = "Promotions";
         }
     }
 }
