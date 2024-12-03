@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Maui;
+using Infrastructure;
+using Infrastructure.Persistance;
 using Microsoft.Extensions.Logging;
 using UI.ViewModels;
 using UI.Views.Cart;
@@ -35,12 +37,17 @@ namespace UI
 
             var app = builder.Build();
 
+            //Initilize Database
+
+            var databaseInitializer = app.Services.GetRequiredService<DatabaseContextInitializer>();
+            databaseInitializer.Initialise();
+
             return app;
         }
 
         public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
         {
-
+            mauiAppBuilder.Services.AddInfrastructureServices();
 
             return mauiAppBuilder;
         }
