@@ -55,4 +55,13 @@
                      Color="{StaticResource Gray900}" />
     <SolidColorBrush x:Key="Gray950Brush"
                      Color="{StaticResource Gray950}" />
+
+    <LinearGradientBrush x:Key="TagBorderSelected"
+                         StartPoint="0,0"
+                         EndPoint="1,0">
+        <GradientStop Color="#C2A993"
+                      Offset="0.0" />
+        <GradientStop Color="#3E3833"
+                      Offset="1.0" />
+    </LinearGradientBrush>
 </ResourceDictionary>

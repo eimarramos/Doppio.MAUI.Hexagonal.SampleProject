@@ -1,4 +1,7 @@
-﻿using Infrastructure.Persistance;
+﻿using Domain.Repositories;
+using Infrastructure.Api.CategoryRepository;
+using Infrastructure.Api.ShopRepository;
+using Infrastructure.Persistance;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -25,7 +28,8 @@ namespace Infrastructure
 
             // Repositories
 
-
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IShopRepository, ShopRepository>();
 
             return services;
         }

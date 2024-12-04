@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Maui;
+﻿using ApplicationLayer;
+using CommunityToolkit.Maui;
 using Infrastructure;
 using Infrastructure.Persistance;
 using Microsoft.Extensions.Logging;
@@ -35,12 +36,9 @@ namespace UI
             builder.Logging.AddDebug();
 #endif
 
-            var app = builder.Build();
+            MauiApp app = builder.Build();
 
-            //Initilize Database
-
-            var databaseInitializer = app.Services.GetRequiredService<DatabaseContextInitializer>();
-            databaseInitializer.Initialise();
+            InitialiseDatabase(app);
 
             return app;
         }
@@ -48,6 +46,7 @@ namespace UI
         public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
         {
             mauiAppBuilder.Services.AddInfrastructureServices();
+            mauiAppBuilder.Services.AddApplicationServices();
 
             return mauiAppBuilder;
         }
@@ -74,6 +73,12 @@ namespace UI
             mauiAppBuilder.Services.AddSingleton<CartPage>();
 
             return mauiAppBuilder;
+        }
+
+        public static void InitialiseDatabase(MauiApp app)
+        {
+            var databaseInitializer = app.Services.GetRequiredService<DatabaseContextInitializer>();
+            databaseInitializer.Initialise();
         }
     }
 }
