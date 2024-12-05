@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UI.Views.Home.ContentViews.SearchView">
+             x:Class="UI.Views.Home.ContentViews.SearchView"
+             xmlns:local="clr-namespace:UI.ViewModels"
+             x:DataType="local:HomeViewModel">
     <Border Padding="15,13,15,13"
             BackgroundColor="{StaticResource Secondary}"
             StrokeShape="RoundRectangle 20"
             Stroke="Transparent"
-            HeightRequest="60"
-            Margin="15,0,15,0">
+            HeightRequest="60">
         <Grid ColumnSpacing="10"
               HeightRequest="50">
             <Grid.ColumnDefinitions>
@@ -23,7 +24,8 @@
                    PlaceholderColor="{StaticResource Gray500}"
                    TextColor="{StaticResource White}"
                    FontFamily="PoppinsRegular"
-                   FontSize="16" />
+                   FontSize="16"
+                   Text="{Binding FilterText}" />
         </Grid>
     </Border>
 </ContentView>
