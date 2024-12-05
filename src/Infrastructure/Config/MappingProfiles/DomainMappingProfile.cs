@@ -9,7 +9,9 @@ namespace Infrastructure.Config.MappingProfiles
         public DomainMappingProfile()
         {
             CreateMap<CategoryEntity, Category>();
-            CreateMap<ShopEntity, Shop>();
+            CreateMap<ShopEntity, Shop>()
+            .ForMember(dest => dest.CategoriesString,
+                       opt => opt.MapFrom(src => string.Join(" • ", src.Categories.Select(c => c.Name))));
         }
     }
 }
