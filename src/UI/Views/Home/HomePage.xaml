@@ -2,18 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.Home.HomePage"
+             xmlns:local="clr-namespace:UI.ViewModels"
              xmlns:shared="clr-namespace:UI.Views.SharedViews"
-             xmlns:views="clr-namespace:UI.Views.Home.ContentViews">
+             xmlns:views="clr-namespace:UI.Views.Home.ContentViews"
+             xmlns:models="clr-namespace:Domain.Models;assembly=Domain"
+             x:Name="Page">
     <Grid RowSpacing="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <shared:TitleView Grid.Row="0" />
-        <views:SearchView Grid.Row="1" />
+        <views:SearchView Grid.Row="1"
+                          Margin="15,0,15,0" />
         <CollectionView Grid.Row="2"
                         ItemsSource="{Binding Categories}"
+                        SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
                         SelectionMode="Single"
                         Margin="15,0,15,0">
             <CollectionView.ItemsLayout>
@@ -24,8 +30,27 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Border Style="{StaticResource TagBorder}">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.ChangeCategorySelectionCommand, Source={x:Reference Page}}"
+                                                  CommandParameter="{Binding .}" />
+                        </Border.GestureRecognizers>
                         <views:TagView />
                     </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <CollectionView Grid.Row="3"
+                        ItemsSource="{Binding Shops}"
+                        SelectionMode="None"
+                        Margin="15,0,15,0">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="1"
+                                 VerticalItemSpacing="15" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <views:ShopCardView />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
