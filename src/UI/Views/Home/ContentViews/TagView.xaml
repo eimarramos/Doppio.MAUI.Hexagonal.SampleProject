@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UI.Views.Home.ContentViews.TagView">
+             x:Class="UI.Views.Home.ContentViews.TagView"
+             xmlns:models="clr-namespace:Domain.Models;assembly=Domain"
+             x:DataType="models:Category">
     <Border Padding="26,9,26,9"
             StrokeShape="RoundRectangle 20"
             StrokeThickness="0"
