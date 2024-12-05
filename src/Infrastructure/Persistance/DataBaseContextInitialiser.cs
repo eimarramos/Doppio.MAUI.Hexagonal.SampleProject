@@ -40,6 +40,7 @@ namespace Infrastructure.Persistance
                     {
                         Name = "Ovation Coffee",
                         Rating = 4.5,
+                        ImageSource = "shop_photo1.png",
                         Categories = new List<CategoryEntity>
                         {
                             categoryDict["Modern"],
@@ -50,8 +51,21 @@ namespace Infrastructure.Persistance
                     },
                     new ShopEntity
                     {
-                        Name = "Murray Hill’s",
+                        Name = "Cafe 5to2",
+                        Rating = 4.7,
+                        ImageSource = "shop_photo2.png",
+                        Categories = new List<CategoryEntity>
+                        {
+                            categoryDict["Urban"],
+                            categoryDict["Upscale"],
+                            categoryDict["Drive-Thru"]
+                        }
+                    },
+                    new ShopEntity
+                    {
+                        Name = "Murray Hill’s Cafe",
                         Rating = 3.9,
+                        ImageSource = "shop_photo3.png",
                         Categories = new List<CategoryEntity>
                         {
                             categoryDict["Urban"],
