@@ -1,7 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UI.Views.Home.ContentViews.ShopCardView">
+             x:Class="UI.Views.Home.ContentViews.ShopCardView"
+             xmlns:models="clr-namespace:Domain.Models;assembly=Domain"
+             x:DataType="models:Shop">
 
-    
+    <Border HeightRequest="280"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 20">
+        <Grid>
+            <Image Source="{Binding ImageSource}"
+                   Aspect="AspectFill" />
+            <VerticalStackLayout VerticalOptions="EndAndExpand"
+                                 MinimumHeightRequest="85"
+                                 Spacing="5"
+                                 Padding="15"
+                                 BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource SecondaryDark}}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding Name}"
+                           FontSize="20"
+                           FontFamily="PoppinsSemiBold"
+                           TextColor="{StaticResource White}"
+                           VerticalTextAlignment="Center"
+                           Grid.Column="0" />
+                    <HorizontalStackLayout Spacing="3"
+                                           Grid.Column="1">
+                        <Label Text="{Binding Rating}"
+                               FontSize="20"
+                               FontFamily="PoppinsSemiBold"
+                               TextColor="{StaticResource White}"
+                               VerticalTextAlignment="Center" />
+                        <Image Source="star.png" />
+                    </HorizontalStackLayout>
+                </Grid>
+                <Label Text="{Binding CategoriesString}"
+                       FontSize="13"
+                       FontFamily="PoppinsRegular"
+                       TextColor="{StaticResource White}"
+                       VerticalTextAlignment="Center" />
+            </VerticalStackLayout>
+        </Grid>
+    </Border>
 </ContentView>
