@@ -8,6 +8,7 @@ namespace Infrastructure.Entities
         public string Name { get; set; } = string.Empty;
         [Range(1, 5)]
         public double Rating { get; set; }
+        public string ImageSource { get; set; } = string.Empty;
         public ICollection<CategoryEntity> Categories { get; set; } = new List<CategoryEntity>();     
     }
 }
