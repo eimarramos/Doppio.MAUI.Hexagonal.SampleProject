@@ -13,6 +13,7 @@
                 <RowDefinition Height="200" />
             </Grid.RowDefinitions>
             <Image Source="logo.png"
+                   MaximumWidthRequest="400"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="StartAndExpand"
                    Margin="41,0,41,0"
@@ -24,6 +25,7 @@
                    Grid.Row="2" />
             <VerticalStackLayout Grid.Row="3"
                                  Spacing="15"
+                                 MaximumWidthRequest="400"
                                  VerticalOptions="EndAndExpand"
                                  Padding="0,0,0,10">
                 <Border Style="{StaticResource LoginButton}"

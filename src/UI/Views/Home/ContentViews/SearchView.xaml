@@ -9,8 +9,7 @@
             StrokeShape="RoundRectangle 20"
             Stroke="Transparent"
             HeightRequest="60">
-        <Grid ColumnSpacing="10"
-              HeightRequest="50">
+        <Grid ColumnSpacing="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -19,12 +18,15 @@
                    Grid.Column="0"
                    VerticalOptions="Center" />
             <Entry Grid.Column="1"
+                   HeightRequest="50"
                    VerticalOptions="Center"
+                   VerticalTextAlignment="Center"
                    Placeholder="Search for your new favorite place"
                    PlaceholderColor="{StaticResource Gray500}"
                    TextColor="{StaticResource White}"
                    FontFamily="PoppinsRegular"
                    FontSize="16"
+                   FontAutoScalingEnabled="False"
                    Text="{Binding FilterText}" />
         </Grid>
     </Border>

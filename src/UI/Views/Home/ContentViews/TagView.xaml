@@ -7,8 +7,12 @@
     <Border Padding="26,9,26,9"
             StrokeShape="RoundRectangle 20"
             StrokeThickness="0"
-            BackgroundColor="{StaticResource Secondary}">
+            BackgroundColor="{StaticResource Secondary}"
+            >
         <Label Text="{Binding Name}"
+               MinimumWidthRequest="65"
+               LineBreakMode="NoWrap"
+               HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"
                FontFamily="PoppinsRegular"
                FontSize="14" />
