@@ -13,7 +13,7 @@ namespace UI.ViewModels
         private readonly CategoryService _categoryService;
         private readonly ShopService _shopService;
 
-        private ObservableCollection<Shop> _initialShops;
+        private ObservableCollection<Shop> _initialShops = new ObservableCollection<Shop>();
 
         [ObservableProperty]
         public ObservableCollection<Category> categories = new ObservableCollection<Category>();
@@ -37,8 +37,6 @@ namespace UI.ViewModels
             Title = "Home";
 
             LoadDataAsync();
-
-            _initialShops = new ObservableCollection<Shop>(Shops);
         }
 
         [RelayCommand]
@@ -82,6 +80,8 @@ namespace UI.ViewModels
                     IsBusy = true;
 
                     await Task.WhenAll(GetCategoriesAsync(), GetShopsAsync());
+
+                    _initialShops = new ObservableCollection<Shop>(Shops);
                 }
                 catch (Exception ex)
                 {
