@@ -73,24 +73,25 @@ namespace UI.ViewModels
             Shops = new ObservableCollection<Shop>(shops);
         }
 
-        private async void LoadDataAsync()
+        public void LoadDataAsync()
         {
-            try
+            Task.Run(async () =>
             {
-                IsBusy = true;
-                Task getCategoriesTask = GetCategoriesAsync();
-                Task getShopsTask = GetShopsAsync();
+                try
+                {
+                    IsBusy = true;
 
-                await Task.WhenAll(getCategoriesTask, getShopsTask);
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+                    await Task.WhenAll(GetCategoriesAsync(), GetShopsAsync());
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine(ex);
+                }
+                finally
+                {
+                    IsBusy = false;
+                }
+            });
         }
 
         partial void OnFilterTextChanged(string value)
