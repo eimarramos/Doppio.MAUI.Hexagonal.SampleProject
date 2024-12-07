@@ -3,56 +3,61 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.Login.LoginPage"
              xmlns:local="clr-namespace:UI.ViewModels"
+             xmlns:shared="clr-namespace:UI.Views.SharedViews"
              x:DataType="local:LoginViewModel">
     <ScrollView>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="110" />
-                <RowDefinition Height="200" />
-            </Grid.RowDefinitions>
-            <Image Source="logo.png"
-                   MaximumWidthRequest="400"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="StartAndExpand"
-                   Margin="41,0,41,0"
-                   Grid.Row="1" />
-            <Label Text="Personable Sign In / Sign Up Words"
-                   Style="{StaticResource LargeText}"
-                   HorizontalOptions="Fill"
-                   Margin="20,0,20,0"
-                   Grid.Row="2" />
-            <VerticalStackLayout Grid.Row="3"
-                                 Spacing="15"
-                                 MaximumWidthRequest="400"
-                                 VerticalOptions="EndAndExpand"
-                                 Padding="0,0,0,10">
-                <Border Style="{StaticResource LoginButton}"
-                        BackgroundColor="{StaticResource Blue}">
-                    <AbsoluteLayout>
-                        <Image Source="facebook.png"
-                               Style="{StaticResource LoginButtonImage}" />
-                        <Label Text="Login with Facebook"
-                               Style="{StaticResource LoginButtonText}" />
-                    </AbsoluteLayout>
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GoToHomeCommand}" />
-                    </Border.GestureRecognizers>
-                </Border>
-                <Border Style="{StaticResource LoginButton}"
-                        BackgroundColor="{StaticResource Black}">
-                    <AbsoluteLayout>
-                        <Image Source="google.png"
-                               Style="{StaticResource LoginButtonImage}" />
-                        <Label Text="Login with Google"
-                               Style="{StaticResource LoginButtonText}" />
-                    </AbsoluteLayout>
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GoToHomeCommand}" />
-                    </Border.GestureRecognizers>
-                </Border>
-            </VerticalStackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="110" />
+                    <RowDefinition Height="200" />
+                </Grid.RowDefinitions>
+                <Image Source="logo.png"
+                       MaximumWidthRequest="400"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="StartAndExpand"
+                       Margin="41,0,41,0"
+                       Grid.Row="1" />
+                <Label Text="Personable Sign In / Sign Up Words"
+                       Style="{StaticResource LargeText}"
+                       HorizontalOptions="Fill"
+                       Margin="20,0,20,0"
+                       Grid.Row="2" />
+                <VerticalStackLayout Grid.Row="3"
+                                     Spacing="15"
+                                     MaximumWidthRequest="400"
+                                     VerticalOptions="EndAndExpand"
+                                     Padding="0,0,0,10">
+                    <Border Style="{StaticResource LoginButton}"
+                            BackgroundColor="{StaticResource Blue}">
+                        <AbsoluteLayout>
+                            <Image Source="facebook.png"
+                                   Style="{StaticResource LoginButtonImage}" />
+                            <Label Text="Login with Facebook"
+                                   Style="{StaticResource LoginButtonText}" />
+                        </AbsoluteLayout>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToHomeCommand}" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                    <Border Style="{StaticResource LoginButton}"
+                            BackgroundColor="{StaticResource Black}">
+                        <AbsoluteLayout>
+                            <Image Source="google.png"
+                                   Style="{StaticResource LoginButtonImage}" />
+                            <Label Text="Login with Google"
+                                   Style="{StaticResource LoginButtonText}" />
+                        </AbsoluteLayout>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToHomeCommand}" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                </VerticalStackLayout>
+            </Grid>
+            <shared:LoaderView AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"
+                               AbsoluteLayout.LayoutFlags="PositionProportional" />
         </Grid>
     </ScrollView>
 </ContentPage>
