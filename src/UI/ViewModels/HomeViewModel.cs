@@ -15,18 +15,18 @@ namespace UI.ViewModels
         private ObservableCollection<Shop> _initialShops = new ObservableCollection<Shop>();
 
         [ObservableProperty]
-        public ObservableCollection<Category> categories = new ObservableCollection<Category>();
+        private ObservableCollection<Category> categories = new ObservableCollection<Category>();
 
         [ObservableProperty]
-        public ObservableCollection<Shop> shops = new ObservableCollection<Shop>();
+        private ObservableCollection<Shop> shops = new ObservableCollection<Shop>();
 
         [ObservableProperty]
-        public Category? selectedCategory;
+        private Category? selectedCategory;
 
         private Category? _previousCategory;
 
         [ObservableProperty]
-        public string filterText = string.Empty;
+        private string filterText = string.Empty;
 
         public HomeViewModel(CategoryService categoryService, ShopService shopService)
         {
@@ -39,7 +39,7 @@ namespace UI.ViewModels
         }
 
         [RelayCommand]
-        public void ChangeCategorySelection(Category tappedCategory)
+        private void ChangeCategorySelection(Category tappedCategory)
         {
             SelectedCategory = tappedCategory;
 
@@ -70,10 +70,8 @@ namespace UI.ViewModels
             Shops = new ObservableCollection<Shop>(shops);
         }
 
-        public void LoadDataAsync()
+        public async void LoadDataAsync()
         {
-            Task.Run(async () =>
-            {
                 try
                 {
                     IsBusy = true;
@@ -90,7 +88,6 @@ namespace UI.ViewModels
                 {
                     IsBusy = false;
                 }
-            });
         }
 
         partial void OnFilterTextChanged(string value)

@@ -9,25 +9,22 @@ namespace UI.ViewModels
         }
 
         [RelayCommand]
-        private void GoToHome()
+        private async Task GoToHome()
         {
-            Task.Run(async () =>
+            try
             {
-                try
-                {
-                    IsBusy = true;
+                IsBusy = true;
 
-                    await Shell.Current.GoToAsync("///home");
-                }
-                catch (Exception e)
-                {
-                    Console.Error.WriteLine(e);
-                }
-                finally
-                {
-                    IsBusy = false;
-                }
-            });
+                await Shell.Current.GoToAsync("///home");
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }
