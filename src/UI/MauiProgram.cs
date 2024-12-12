@@ -10,6 +10,7 @@ using UI.Views.Login;
 using UI.Views.Notifications;
 using UI.Views.Profile;
 using UI.Views.Promotions;
+using UI.Views.ShopDetails;
 
 namespace UI
 {
@@ -59,6 +60,7 @@ namespace UI
             mauiAppBuilder.Services.AddSingleton<NotificationsViewModel>();
             mauiAppBuilder.Services.AddSingleton<ProfileViewModel>();
             mauiAppBuilder.Services.AddSingleton<CartViewModel>();
+            mauiAppBuilder.Services.AddSingleton<ShopDetailsViewModel>();
 
             return mauiAppBuilder;
         }
@@ -71,6 +73,7 @@ namespace UI
             mauiAppBuilder.Services.AddSingleton<NotificationsPage>();
             mauiAppBuilder.Services.AddSingleton<ProfilePage>();
             mauiAppBuilder.Services.AddSingleton<CartPage>();
+            mauiAppBuilder.Services.AddSingleton<ShopDetailsPage>();
 
             return mauiAppBuilder;
         }
