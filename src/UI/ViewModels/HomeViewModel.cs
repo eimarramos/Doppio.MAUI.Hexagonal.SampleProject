@@ -23,6 +23,9 @@ namespace UI.ViewModels
         [ObservableProperty]
         private Category? selectedCategory;
 
+        [ObservableProperty]
+        private Shop? selectedShop;
+
         private Category? _previousCategory;
 
         [ObservableProperty]
@@ -36,6 +39,40 @@ namespace UI.ViewModels
             Title = "Home";
 
             LoadDataAsync();
+        }
+
+        partial void OnSelectedShopChanged(Shop? value)
+        {
+            if (value == null) return;
+
+            GoToShopDetails(value);
+            SelectedShop = null;
+        }
+
+        private async void GoToShopDetails(Shop shop)
+        {
+            await Task.Run(async () =>
+            {
+                try
+                {
+                    IsBusy = true;
+
+                    var navigationParameter = new ShellNavigationQueryParameters
+                    {
+                        {"Shop", shop }
+                    };
+
+                    await Shell.Current.GoToAsync("///shop_details", navigationParameter);
+                }
+                catch (Exception e)
+                {
+                    Console.Error.WriteLine(e);
+                }
+                finally
+                {
+                    IsBusy = false;
+                }
+            });
         }
 
         [RelayCommand]
