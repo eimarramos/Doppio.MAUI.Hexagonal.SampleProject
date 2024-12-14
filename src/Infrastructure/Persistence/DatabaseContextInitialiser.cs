@@ -1,6 +1,6 @@
 ﻿using Infrastructure.Entities;
 
-namespace Infrastructure.Persistance
+namespace Infrastructure.Persistence
 {
     public class DatabaseContextInitializer
     {

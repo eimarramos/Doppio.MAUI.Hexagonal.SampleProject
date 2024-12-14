@@ -1,7 +1,7 @@
 ﻿using Domain.Repositories;
 using Infrastructure.Api.CategoryRepository;
 using Infrastructure.Api.ShopRepository;
-using Infrastructure.Persistance;
+using Infrastructure.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 

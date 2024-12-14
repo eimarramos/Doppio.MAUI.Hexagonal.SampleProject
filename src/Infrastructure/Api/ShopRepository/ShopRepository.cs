@@ -2,7 +2,7 @@
 using Domain.Models;
 using Domain.Repositories;
 using Infrastructure.Entities;
-using Infrastructure.Persistance;
+using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Api.ShopRepository

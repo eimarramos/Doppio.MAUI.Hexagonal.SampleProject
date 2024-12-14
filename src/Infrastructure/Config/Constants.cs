@@ -1,13 +1,10 @@
-﻿using Infrastructure.Persistance;
-using System.Text.Json;
-
-namespace Infrastructure.Config
+﻿namespace Infrastructure.Config
 {
     public static class Constants
     {
         public const string DatabaseFilename = "TestDGT.db3";
-        public const string CategoriesResourceName = "Infrastructure.Persistance.Data.CategoriesSeedData.json";
-        public const string ShopsResourceName = "Infrastructure.Persistance.Data.ShopsSeedData.json";
+        public const string CategoriesResourceName = "Infrastructure.Persistence.Data.CategoriesSeedData.json";
+        public const string ShopsResourceName = "Infrastructure.Persistence.Data.ShopsSeedData.json";
 
         public static string DatabasePath
         {
@@ -18,6 +15,6 @@ namespace Infrastructure.Config
             }
         }
 
-       
+
     }
 }
