@@ -1,7 +1,7 @@
 ﻿using ApplicationLayer;
 using CommunityToolkit.Maui;
 using Infrastructure;
-using Infrastructure.Persistance;
+using Infrastructure.Persistence;
 using Microsoft.Extensions.Logging;
 using UI.ViewModels;
 using UI.Views.Cart;
