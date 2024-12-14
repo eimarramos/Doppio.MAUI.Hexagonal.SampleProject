@@ -56,8 +56,7 @@
                     </Border>
                 </VerticalStackLayout>
             </Grid>
-            <shared:LoaderView AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"
-                               AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <shared:LoaderView />
         </Grid>
     </ScrollView>
 </ContentPage>

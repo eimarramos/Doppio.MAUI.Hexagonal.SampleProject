@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.Home.ContentViews.ShopCardView"
              xmlns:models="clr-namespace:Domain.Models;assembly=Domain"
-             x:DataType="models:Shop">
+             x:DataType="models:Shop"
+             xmlns:home="clr-namespace:UI.Views.Home">
 
     <Border HeightRequest="280"
             StrokeThickness="0"

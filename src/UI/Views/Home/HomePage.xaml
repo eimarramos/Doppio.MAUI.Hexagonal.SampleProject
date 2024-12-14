@@ -6,7 +6,7 @@
              xmlns:shared="clr-namespace:UI.Views.SharedViews"
              xmlns:views="clr-namespace:UI.Views.Home.ContentViews"
              xmlns:models="clr-namespace:Domain.Models;assembly=Domain"
-             x:Name="Page">
+             x:Name="Home">
     <Grid>
         <Grid RowSpacing="10">
             <Grid.RowDefinitions>
@@ -32,7 +32,7 @@
                     <DataTemplate>
                         <Border Style="{StaticResource TagBorder}">
                             <Border.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Path=BindingContext.ChangeCategorySelectionCommand, Source={x:Reference Page}}"
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.ChangeCategorySelectionCommand, Source={x:Reference Home}}"
                                                       CommandParameter="{Binding .}" />
                             </Border.GestureRecognizers>
                             <views:TagView />
@@ -42,8 +42,9 @@
             </CollectionView>
             <CollectionView Grid.Row="3"
                             ItemsSource="{Binding Shops}"
-                            SelectionMode="None"
-                            Margin="15,0,15,0">
+                            SelectionMode="Single"
+                            Margin="15,0,15,0"
+                            SelectedItem="{Binding SelectedShop, Mode=TwoWay}">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
                                      Span="1"
@@ -56,7 +57,6 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Grid>
-        <shared:LoaderView AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"
-                           AbsoluteLayout.LayoutFlags="PositionProportional" />
+        <shared:LoaderView />
     </Grid>
 </ContentPage>
