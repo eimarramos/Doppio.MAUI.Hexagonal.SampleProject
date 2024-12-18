@@ -21,7 +21,7 @@ namespace UI.ViewModels
                 {
                     IsBusy = true;
 
-                    await Shell.Current.GoToAsync("///home");
+                    await Shell.Current.Navigation.PopAsync();
                 }
                 catch (Exception e)
                 {

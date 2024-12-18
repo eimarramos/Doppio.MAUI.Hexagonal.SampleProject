@@ -13,7 +13,7 @@
        Shell.FlyoutBehavior="Disabled">
 
     <ShellContent ContentTemplate="{DataTemplate login:LoginPage}"
-                  Route="Login" />
+                  Route="login" />
     <ShellContent ContentTemplate="{DataTemplate shop_details:ShopDetailsPage}"
                   Route="shop_details" />
 

@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Domain.Models;
 using System.Collections.ObjectModel;
+using UI.Views.ShopDetails;
 
 namespace UI.ViewModels
 {
@@ -11,6 +12,7 @@ namespace UI.ViewModels
     {
         private readonly CategoryService _categoryService;
         private readonly ShopService _shopService;
+        private readonly IServiceProvider _serviceProvider;
 
         private ObservableCollection<Shop> _initialShops = new ObservableCollection<Shop>();
 
@@ -31,10 +33,11 @@ namespace UI.ViewModels
         [ObservableProperty]
         private string filterText = string.Empty;
 
-        public HomeViewModel(CategoryService categoryService, ShopService shopService)
+        public HomeViewModel(CategoryService categoryService, ShopService shopService, IServiceProvider serviceProvider)
         {
             _categoryService = categoryService;
             _shopService = shopService;
+            _serviceProvider = serviceProvider;
 
             Title = "Home";
 
@@ -57,12 +60,13 @@ namespace UI.ViewModels
                 {
                     IsBusy = true;
 
-                    var navigationParameter = new ShellNavigationQueryParameters
-                    {
-                        {"Shop", shop }
-                    };
+                    var detailViewModel = _serviceProvider.GetRequiredService<ShopDetailsViewModel>();
 
-                    await Shell.Current.GoToAsync("///shop_details", navigationParameter);
+                    detailViewModel.Shop = shop;
+
+                    var detailPage = _serviceProvider.GetRequiredService<ShopDetailsPage>();
+
+                    await Shell.Current.Navigation.PushAsync(detailPage);
                 }
                 catch (Exception e)
                 {
