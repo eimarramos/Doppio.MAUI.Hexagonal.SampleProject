@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.ShopDetails.ShopDetailsPage"
              xmlns:shared="clr-namespace:UI.Views.SharedViews"
-             Title="ShopDetailsPage">
+             xmlns:views="clr-namespace:UI.Views.ShopDetails.ContentViews">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -11,13 +11,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Button Grid.Row="0"
-                    Command="{Binding GoHomeCommand}"
-                    Text="BACK"
-                    HeightRequest="60" />
-            <Image Grid.Row="1"
-                   HorizontalOptions="CenterAndExpand"
-                   Source="{Binding Shop.ImageSource}" />
+            <views:HeroView Grid.Column="0" />
         </Grid>
         <shared:LoaderView />
     </Grid>

@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Maui.Views;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Domain.Models;
 
@@ -10,10 +9,10 @@ namespace UI.ViewModels
         [ObservableProperty]
         private Shop? shop;
         public ShopDetailsViewModel()
-        {}
+        { }
 
         [RelayCommand]
-        private async Task GoHome()
+        private async Task GoBack()
         {
             await Task.Run(async () =>
             {

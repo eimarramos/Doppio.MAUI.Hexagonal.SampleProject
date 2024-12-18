@@ -24,7 +24,6 @@
         </Tab>
         <Tab Icon="cart.png">
             <ShellContent ContentTemplate="{DataTemplate cart:CartPage}"
-                          Title="Cart"
                           Route="cart" />
         </Tab>
         <Tab Icon="home.png">
