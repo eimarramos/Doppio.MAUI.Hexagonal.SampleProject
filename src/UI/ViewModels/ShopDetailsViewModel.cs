@@ -4,7 +4,8 @@ using Domain.Models;
 
 namespace UI.ViewModels
 {
-    public partial class ShopDetailsViewModel : BaseViewModel, IQueryAttributable
+    [QueryProperty(nameof(Shop), "Shop")]
+    public partial class ShopDetailsViewModel : BaseViewModel
     {
         [ObservableProperty]
         private Shop? shop;
@@ -20,7 +21,7 @@ namespace UI.ViewModels
                 {
                     IsBusy = true;
 
-                    await Shell.Current.Navigation.PopAsync();
+                    await Shell.Current.GoToAsync("..");
                 }
                 catch (Exception e)
                 {
@@ -31,11 +32,6 @@ namespace UI.ViewModels
                     IsBusy = false;
                 }
             });
-        }
-
-        public void ApplyQueryAttributes(IDictionary<string, object> query)
-        {
-            Shop = query["Shop"] as Shop;
         }
     }
 }

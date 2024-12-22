@@ -12,7 +12,6 @@ namespace UI.ViewModels
     {
         private readonly CategoryService _categoryService;
         private readonly ShopService _shopService;
-        private readonly IServiceProvider _serviceProvider;
 
         private ObservableCollection<Shop> _initialShops = new ObservableCollection<Shop>();
 
@@ -33,11 +32,10 @@ namespace UI.ViewModels
         [ObservableProperty]
         private string filterText = string.Empty;
 
-        public HomeViewModel(CategoryService categoryService, ShopService shopService, IServiceProvider serviceProvider)
+        public HomeViewModel(CategoryService categoryService, ShopService shopService)
         {
             _categoryService = categoryService;
             _shopService = shopService;
-            _serviceProvider = serviceProvider;
 
             Title = "Home";
 
@@ -54,29 +52,27 @@ namespace UI.ViewModels
 
         private async void GoToShopDetails(Shop shop)
         {
-            await Task.Run(async () =>
+
+            try
             {
-                try
-                {
-                    IsBusy = true;
+                IsBusy = true;
 
-                    var detailViewModel = _serviceProvider.GetRequiredService<ShopDetailsViewModel>();
+                var parameters = new ShellNavigationQueryParameters
+                    {
+                        { "Shop", shop }
+                    };
 
-                    detailViewModel.Shop = shop;
+                await Shell.Current.GoToAsync("shop_details", parameters);
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
 
-                    var detailPage = _serviceProvider.GetRequiredService<ShopDetailsPage>();
-
-                    await Shell.Current.Navigation.PushAsync(detailPage);
-                }
-                catch (Exception e)
-                {
-                    Console.Error.WriteLine(e);
-                }
-                finally
-                {
-                    IsBusy = false;
-                }
-            });
         }
 
         [RelayCommand]

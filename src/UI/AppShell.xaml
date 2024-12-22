@@ -16,7 +16,6 @@
                   Route="login" />
     <ShellContent ContentTemplate="{DataTemplate shop_details:ShopDetailsPage}"
                   Route="shop_details" />
-
     <TabBar>
         <Tab Icon="promotions.png">
             <ShellContent ContentTemplate="{DataTemplate promotions:PromotionsPage}"
