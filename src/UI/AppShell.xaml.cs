@@ -8,6 +8,7 @@ namespace UI
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute("home", typeof(HomePage));
             Routing.RegisterRoute("shop_details", typeof(ShopDetailsPage));
         }
     }

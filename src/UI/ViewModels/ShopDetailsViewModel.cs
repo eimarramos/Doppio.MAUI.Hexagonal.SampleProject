@@ -15,23 +15,7 @@ namespace UI.ViewModels
         [RelayCommand]
         private async Task GoBack()
         {
-            await Task.Run(async () =>
-            {
-                try
-                {
-                    IsBusy = true;
-
-                    await Shell.Current.GoToAsync("..");
-                }
-                catch (Exception e)
-                {
-                    Console.Error.WriteLine(e);
-                }
-                finally
-                {
-                    IsBusy = false;
-                }
-            });
+            await Shell.Current.GoToAsync("..", true);
         }
     }
 }
