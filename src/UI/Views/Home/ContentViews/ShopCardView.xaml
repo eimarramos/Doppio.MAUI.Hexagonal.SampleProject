@@ -18,7 +18,7 @@
                                  Spacing="5"
                                  Padding="15"
                                  BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource SecondaryDark}}">
-                <Grid>
+                <Grid HeightRequest="31">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
@@ -36,7 +36,9 @@
                                FontFamily="PoppinsSemiBold"
                                TextColor="{StaticResource White}"
                                VerticalTextAlignment="Center" />
-                        <Image Source="star.png" />
+                        <Image Source="star.png"
+                               HeightRequest="18"
+                               WidthRequest="18" />
                     </HorizontalStackLayout>
                 </Grid>
                 <Label Text="{Binding CategoriesString}"
