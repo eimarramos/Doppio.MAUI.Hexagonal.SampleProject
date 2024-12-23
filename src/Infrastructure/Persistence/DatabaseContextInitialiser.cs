@@ -38,7 +38,7 @@ namespace Infrastructure.Persistence
                 {
                     new ShopEntity
                     {
-                        Name = "Ovation Coffee",
+                        Name = "Ovation",
                         Rating = 4.5,
                         ImageSource = "shop_photo1.png",
                         Categories = new List<CategoryEntity>
@@ -63,7 +63,7 @@ namespace Infrastructure.Persistence
                     },
                     new ShopEntity
                     {
-                        Name = "Murray Hill’s Cafe",
+                        Name = "Murray Hill’s",
                         Rating = 3.9,
                         ImageSource = "shop_photo3.png",
                         Categories = new List<CategoryEntity>
