@@ -5,14 +5,16 @@
              xmlns:shared="clr-namespace:UI.Views.SharedViews"
              xmlns:views="clr-namespace:UI.Views.ShopDetails.ContentViews">
     <Grid>
-        <Grid>
+        <Grid RowSpacing="15">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <views:HeroView Grid.Column="0" />
             <views:TitleView Grid.Row="1" />
+            <views:LocationView Grid.Row="2" />
         </Grid>
         <shared:LoaderView />
     </Grid>
