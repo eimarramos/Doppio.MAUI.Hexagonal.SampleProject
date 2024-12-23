@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UI.Views.ShopDetails.ContentViews.TitleView">
+    <Grid Margin="15,0,15,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0"
+               Text="{Binding Shop.Name}"
+               FontSize="36"
+               FontFamily="MuseoModernoMedium"
+               VerticalTextAlignment="Center" />
+        <HorizontalStackLayout Grid.Column="1"
+                               HeightRequest="31"
+                               Spacing="3">
+            <Label Text="{Binding Shop.Rating}"
+                   FontSize="22"
+                   FontFamily="PoppinsSemiBold"
+                   VerticalTextAlignment="Center" />
+            <Image Source="star.png"
+                   HeightRequest="26"
+                   WidthRequest="26" />
+        </HorizontalStackLayout>
+    </Grid>
+</ContentView>
