@@ -2,12 +2,14 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.SharedViews.BackButtonView">
-    <Border HeightRequest="40"
-            WidthRequest="40"
-            StrokeShape="RoundRectangle 40"
+    <Border HeightRequest="46"
+            WidthRequest="46"
+            StrokeShape="RoundRectangle 23"
             StrokeThickness="0"
             BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource SecondaryDark}}">
         <ImageButton Source="back.png"
+                     HeightRequest="24"
+                     WidthRequest="24"
                      Padding="11"
                      BackgroundColor="Transparent"
                      Command="{Binding GoBackCommand}" />
