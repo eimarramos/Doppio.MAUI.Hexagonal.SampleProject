@@ -10,14 +10,14 @@
         <Label Grid.Column="0"
                Text="{Binding Shop.Name}"
                FontSize="36"
-               FontFamily="MuseoModernoMedium"
+               FontFamily="{StaticResource MuseoModernoMedium}"
                VerticalTextAlignment="Center" />
         <HorizontalStackLayout Grid.Column="1"
-                               HeightRequest="31"
+                               HeightRequest="33"
                                Spacing="3">
             <Label Text="{Binding Shop.Rating}"
                    FontSize="22"
-                   FontFamily="PoppinsSemiBold"
+                   FontFamily="{StaticResource PoppinsSemiBold}"
                    VerticalTextAlignment="Center" />
             <Image Source="star.png"
                    HeightRequest="26"
