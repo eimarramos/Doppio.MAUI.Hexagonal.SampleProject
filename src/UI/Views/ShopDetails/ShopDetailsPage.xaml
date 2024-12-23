@@ -12,6 +12,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <views:HeroView Grid.Column="0" />
+            <views:TitleView Grid.Row="1" />
         </Grid>
         <shared:LoaderView />
     </Grid>
