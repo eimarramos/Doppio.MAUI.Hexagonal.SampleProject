@@ -12,6 +12,7 @@ namespace Infrastructure.Config.MappingProfiles
             CreateMap<ShopEntity, Shop>()
             .ForMember(dest => dest.CategoriesString,
                        opt => opt.MapFrom(src => string.Join(" • ", src.Categories.Select(c => c.Name))));
+            CreateMap<CoffeeEntity, Coffee>();
         }
     }
 }

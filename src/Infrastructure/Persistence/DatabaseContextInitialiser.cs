@@ -31,8 +31,20 @@ namespace Infrastructure.Persistence
                 };
 
                 _context.Categories.AddRange(categories);
-
                 var categoryDict = categories.ToDictionary(c => c.Name);
+
+
+                var coffees = new List<CoffeeEntity>
+                {
+                    new CoffeeEntity { Name = "Black", Description = "Classic dark roast coffee from organic arabica beans", Price = 2.99m, ImageSource = "black_coffee.png"},
+                    new CoffeeEntity { Name = "Latte", Description = "Original Italian latte made with espresso and steamed milk", Price = 3.99m, ImageSource = "latte_coffee.png"},
+                    new CoffeeEntity { Name = "Espresso", Description = "Silky, finely ground beans brewed under high pressure", Price = 3.99m, ImageSource = "espresso_coffee.png"},
+                    new CoffeeEntity { Name = "Americano", Description = "Espresso with added hot water for a lighter taste", Price = 2.99m, ImageSource = "americano_coffee.png"},
+                    new CoffeeEntity { Name = "Cappuccino", Description = "Streamed and foamed cream or milk with espresso shots", Price = 3.99m, ImageSource = "cappuccino_coffee.png"},
+                };
+
+                _context.Coffees.AddRange(coffees);   
+                var coffeeDict = coffees.ToDictionary(c => c.Name);
 
                 var shops = new List<ShopEntity>
                 {
@@ -47,6 +59,14 @@ namespace Infrastructure.Persistence
                             categoryDict["Corporate"],
                             categoryDict["Urban"],
                             categoryDict["Upscale"]
+                        },
+                        Coffees = new List<CoffeeEntity>
+                        {
+                            coffeeDict["Black"],
+                            coffeeDict["Latte"],
+                            coffeeDict["Espresso"],
+                            coffeeDict["Americano"],
+                            coffeeDict["Cappuccino"]
                         }
                     },
                     new ShopEntity
@@ -59,6 +79,14 @@ namespace Infrastructure.Persistence
                             categoryDict["Urban"],
                             categoryDict["Upscale"],
                             categoryDict["Drive-Thru"]
+                        },
+                        Coffees = new List<CoffeeEntity>
+                        {
+                            coffeeDict["Black"],
+                            coffeeDict["Latte"],
+                            coffeeDict["Espresso"],
+                            coffeeDict["Americano"],
+                            coffeeDict["Cappuccino"]
                         }
                     },
                     new ShopEntity
@@ -72,6 +100,14 @@ namespace Infrastructure.Persistence
                             categoryDict["Corporate"],
                             categoryDict["Drive-Thru"],
                             categoryDict["Hipster"]
+                        },
+                        Coffees = new List<CoffeeEntity>
+                        {
+                            coffeeDict["Black"],
+                            coffeeDict["Latte"],
+                            coffeeDict["Espresso"],
+                            coffeeDict["Americano"],
+                            coffeeDict["Cappuccino"]
                         }
                     }
                 };

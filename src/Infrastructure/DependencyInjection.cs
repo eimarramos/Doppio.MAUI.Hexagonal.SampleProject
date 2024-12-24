@@ -1,5 +1,6 @@
 ﻿using Domain.Repositories;
 using Infrastructure.Api.CategoryRepository;
+using Infrastructure.Api.CoffeeRepository;
 using Infrastructure.Api.ShopRepository;
 using Infrastructure.Persistence;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +31,7 @@ namespace Infrastructure
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IShopRepository, ShopRepository>();
+            services.AddScoped<ICoffeeRepository, CoffeeRepository>();
 
             return services;
         }
