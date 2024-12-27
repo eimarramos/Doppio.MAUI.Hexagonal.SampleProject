@@ -4,7 +4,9 @@
              x:Class="UI.Views.ShopDetails.ContentViews.MenuItemView">
     <Border HeightRequest="96"
             StrokeThickness="0"
-            StrokeShape="RoundRectangle 20">
+            StrokeShape="RoundRectangle 20"
+            BackgroundColor="{StaticResource SecondaryDark}"
+            Padding="15,13,15,13">
         <Grid ColumnSpacing="15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -19,18 +21,36 @@
                    Grid.RowSpan="2"
                    Source="{Binding ImageSource}" />
             <Label Grid.Column="1"
-                   Grid.Row="0"
-                   Text="{Binding Name}"
-                   FontFamily="{StaticResource PoppinsSemiBold}"
-                   FontSize="16" />
+                   Grid.Row="0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span TextColor="{StaticResource White}"
+                              FontFamily="{StaticResource PoppinsSemiBold}"
+                              FontSize="16"
+                              Text="{Binding Name}" />
+                        <Span TextColor="{StaticResource White}"
+                              FontFamily="{StaticResource PoppinsSemiBold}"
+                              FontSize="16"
+                              Text=" • $" />
+                        <Span TextColor="{StaticResource White}"
+                              FontFamily="{StaticResource PoppinsSemiBold}"
+                              FontSize="16"
+                              Text="{Binding Price}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
             <Label Grid.Column="1"
                    Grid.Row="1"
                    Text="{Binding Description}"
                    FontFamily="{StaticResource PoppinsRegular}"
                    FontSize="13" />
-            <Image Grid.Column="2"
-                   Grid.RowSpan="2"
-                   Source="plus.png" />
+            <VerticalStackLayout Grid.Column="2"
+                                 Grid.RowSpan="2"
+                                 VerticalOptions="Center"
+                                 WidthRequest="20">
+                <ImageButton Source="plus.png"
+                             Aspect="AspectFit" />
+            </VerticalStackLayout>
         </Grid>
     </Border>
 </ContentView>
