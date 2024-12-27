@@ -11,7 +11,13 @@
         <views:MenuHeaderView Grid.Row="0" />
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Coffees}"
-                        SelectionMode="None">
+                        SelectionMode="None"
+                        Margin="0,0,0,15">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="1"
+                                 VerticalItemSpacing="15" />
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <views:MenuItemView />
