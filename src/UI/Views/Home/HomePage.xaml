@@ -40,22 +40,23 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <CollectionView Grid.Row="3"
-                            ItemsSource="{Binding Shops}"
-                            SelectionMode="Single"
-                            Margin="15,0,15,0"
-                            SelectedItem="{Binding SelectedShop, Mode=TwoWay}">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical"
-                                     Span="1"
-                                     VerticalItemSpacing="15" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <views:ShopCardView />
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+            <ScrollView Grid.Row="3">
+                <CollectionView ItemsSource="{Binding Shops}"
+                                SelectionMode="Single"
+                                Margin="15,0,15,15"
+                                SelectedItem="{Binding SelectedShop, Mode=TwoWay}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                         Span="1"
+                                         VerticalItemSpacing="15" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <views:ShopCardView />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
         </Grid>
         <shared:LoaderView />
     </Grid>
