@@ -18,7 +18,9 @@ namespace Infrastructure.Api.CategoryRepository
         }
         public async Task<List<Category>> GetAll()
         {
-            List<CategoryEntity> categories = await _context.Categories.ToListAsync();
+            List<CategoryEntity> categories = await _context.Categories
+                                                            .AsNoTracking()
+                                                            .ToListAsync();
 
             List<Category> categoriesMapped = _mapper.Map<List<Category>>(categories);
 

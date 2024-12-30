@@ -19,7 +19,8 @@ namespace Infrastructure.Api.ShopRepository
         public async Task<List<Shop>> GetAll()
         {
             List<ShopEntity> shops = await _context.Shops
-                                           .Include(s => s.Categories)
+                                           .AsNoTracking()
+                                           .Include(s => s.Categories)                                        
                                            .ToListAsync();
 
             List<Shop> shopsMapped = _mapper.Map<List<Shop>>(shops);

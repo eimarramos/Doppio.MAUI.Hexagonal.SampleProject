@@ -19,6 +19,7 @@ namespace Infrastructure.Api.CoffeeRepository
         public async Task<List<Coffee>> GetAllByShopId(int shopId)
         {
             ShopEntity? shop = await _context.Shops
+                                             .AsNoTracking()
                                              .Include(s => s.Coffees)
                                              .FirstOrDefaultAsync(c => c.Id == shopId);
 
@@ -32,6 +33,7 @@ namespace Infrastructure.Api.CoffeeRepository
         public async Task<List<Coffee>> GetTopThreeByShopId(int shopId)
         {
             var shop = await _context.Shops
+                                     .AsNoTracking()
                                      .Include(s => s.Coffees)
                                      .FirstOrDefaultAsync(c => c.Id == shopId);
 
