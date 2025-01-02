@@ -4,8 +4,7 @@
              x:Class="UI.Views.ShopDetails.ContentViews.LocationView">
     <Border HeightRequest="240"
             StrokeThickness="0"
-            StrokeShape="RoundRectangle 20"
-            Margin="15,0,15,0">
+            StrokeShape="RoundRectangle 20">
         <Grid>
             <Image Source="map.png "
                    Aspect="AspectFill" />
