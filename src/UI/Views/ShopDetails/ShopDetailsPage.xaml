@@ -12,7 +12,7 @@
             </Grid.RowDefinitions>
             <views:HeroView Grid.Column="0" />
             <ScrollView Grid.Row="1">
-                <VerticalStackLayout>
+                <VerticalStackLayout Margin="15,0,15,0">
                     <views:TitleView />
                     <views:LocationView />
                     <views:MenuView />
