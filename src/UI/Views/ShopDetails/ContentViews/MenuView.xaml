@@ -4,7 +4,7 @@
              x:Class="UI.Views.ShopDetails.ContentViews.MenuView"
              xmlns:views="clr-namespace:UI.Views.ShopDetails.ContentViews"
              xmlns:shared="clr-namespace:UI.Views.SharedViews">
-    <Grid Margin="15,0,15,0">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
