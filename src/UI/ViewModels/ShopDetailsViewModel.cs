@@ -57,9 +57,27 @@ namespace UI.ViewModels
         }
 
         [RelayCommand]
-        private async Task GoBack()
+        private async Task GoToMenu()
         {
-            await Shell.Current.GoToAsync("..", true);
+            try
+            {
+                IsBusy = true;
+
+                var parameters = new ShellNavigationQueryParameters
+                {
+                    { "ShopId", Shop.Id }
+                };
+
+                await Shell.Current.GoToAsync("menu", parameters);
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

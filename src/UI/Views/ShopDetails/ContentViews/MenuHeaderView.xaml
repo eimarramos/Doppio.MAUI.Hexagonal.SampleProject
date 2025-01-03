@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.ShopDetails.ContentViews.MenuHeaderView">
     <Grid HeightRequest="38" Margin="0,15,0,15">
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding GoToMenuCommand}" />
+        </Grid.GestureRecognizers>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
