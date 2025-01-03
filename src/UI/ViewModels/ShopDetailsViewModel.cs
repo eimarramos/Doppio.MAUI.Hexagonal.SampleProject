@@ -17,7 +17,7 @@ namespace UI.ViewModels
 
         public ShopDetailsViewModel(CoffeeService coffeeService)
         {
-            _coffeeService = coffeeService;       
+            _coffeeService = coffeeService;
         }
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
