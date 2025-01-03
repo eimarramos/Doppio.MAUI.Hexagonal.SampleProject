@@ -1,4 +1,4 @@
-﻿using UI.Views.Home;
+﻿using UI.Views.Menu;
 using UI.Views.ShopDetails;
 
 namespace UI
@@ -9,6 +9,7 @@ namespace UI
         {
             InitializeComponent();
             Routing.RegisterRoute("shop_details", typeof(ShopDetailsPage));
+            Routing.RegisterRoute("menu", typeof(MenuPage));
         }
     }
 }

@@ -10,12 +10,15 @@
        xmlns:cart="clr-namespace:UI.Views.Cart"
        xmlns:profile="clr-namespace:UI.Views.Profile"
        xmlns:shop_details="clr-namespace:UI.Views.ShopDetails"
+       xmlns:menu="clr-namespace:UI.Views.Menu"
        Shell.FlyoutBehavior="Disabled">
 
     <ShellContent ContentTemplate="{DataTemplate login:LoginPage}"
                   Route="login" />
     <ShellContent ContentTemplate="{DataTemplate shop_details:ShopDetailsPage}"
                   Route="shop_details" />
+    <ShellContent ContentTemplate="{DataTemplate menu:MenuPage}"
+                  Route="menu" />
     <TabBar>
         <Tab Icon="promotions.png">
             <ShellContent ContentTemplate="{DataTemplate promotions:PromotionsPage}"
