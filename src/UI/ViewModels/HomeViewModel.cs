@@ -58,9 +58,9 @@ namespace UI.ViewModels
                 IsBusy = true;
 
                 var parameters = new ShellNavigationQueryParameters
-                    {
-                        { "Shop", shop }
-                    };
+                {
+                    { "Shop", shop }
+                };
 
                 await Shell.Current.GoToAsync("shop_details", parameters);
             }
