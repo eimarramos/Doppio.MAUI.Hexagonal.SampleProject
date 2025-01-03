@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace UI.ViewModels
 {
@@ -12,5 +13,11 @@ namespace UI.ViewModels
         string title = String.Empty;
 
         public bool IsNotBusy => !IsBusy;
+
+        [RelayCommand]
+        private async Task GoBack()
+        {
+            await Shell.Current.GoToAsync("..", true);
+        }
     }
 }
