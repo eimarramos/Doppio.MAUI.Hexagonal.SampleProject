@@ -9,6 +9,8 @@ namespace Infrastructure.Persistence
         public DbSet<CategoryEntity> Categories { get; set; } = null!;
         public DbSet<ShopEntity> Shops { get; set; } = null!;
         public DbSet<CoffeeEntity> Coffees { get; set; } = null!;
+        public DbSet<CartEntity> Carts { get; set; } = null!;
+        public DbSet<CartDetailEntity> CartDetails { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string DbConnetion = $"Filename={Constants.DatabasePath}";
