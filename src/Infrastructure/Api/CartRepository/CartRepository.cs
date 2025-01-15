@@ -57,9 +57,25 @@ namespace Infrastructure.Api.CartRepository
             }
             await _context.SaveChangesAsync();
         }
-        public Task RemoveCoffeeFromCart(int coffeeId)
+        public async Task RemoveCoffeeFromCart(int coffeeId)
         {
-            throw new NotImplementedException();
+            CartEntity cart = await _context.Carts.AsNoTracking()
+                                                   .Include(c => c.CartDetails)
+                                                   .FirstAsync();
+
+            if (cart.CartDetails.Any(d => d.Coffee?.Id == coffeeId))
+            {
+                CartDetailEntity detail = cart.CartDetails.First(cd => cd.Coffee?.Id == coffeeId);
+                if (detail.Quantity > 1)
+                {
+                    detail.Quantity--;
+                }
+                else
+                {
+                    cart.CartDetails.Remove(detail);
+                }
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
