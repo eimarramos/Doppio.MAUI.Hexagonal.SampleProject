@@ -3,6 +3,8 @@ using Infrastructure.Api.CategoryRepository;
 using Infrastructure.Api.CoffeeRepository;
 using Infrastructure.Api.ShopRepository;
 using Infrastructure.Persistence;
+using Infrastructure.Persistence.Interceptors;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -32,6 +34,15 @@ namespace Infrastructure
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IShopRepository, ShopRepository>();
             services.AddScoped<ICoffeeRepository, CoffeeRepository>();
+
+            // Interceptors
+
+            services.AddScoped<ISaveChangesInterceptor, CartTotalInterceptor>();
+
+            services.AddDbContext<DatabaseContext>((sp, options) =>
+            {
+                options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
+            });
 
             return services;
         }
