@@ -26,6 +26,20 @@ namespace Infrastructure.Api.CartRepository
 
             return cartDetailsMapped;
         }
+        public async Task<int> GetCurrentItemsCount()
+        {
+            CartEntity cart = await _context.Carts.AsNoTracking()
+                                                   .Include(c => c.CartDetails)
+                                                   .FirstAsync();
+            return cart.CartDetails.Count;
+        }
+        public async Task<decimal> GetTotal()
+        {
+            CartEntity cart = await _context.Carts.AsNoTracking()
+                                                   .Include(c => c.CartDetails)
+                                                   .FirstAsync();
+            return cart.Total;
+        }
         public async Task AddCoffeeToCart(int coffeeId)
         {
             CartEntity cart = await _context.Carts.AsNoTracking()
