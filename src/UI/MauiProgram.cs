@@ -40,7 +40,7 @@ namespace UI
 
             MauiApp app = builder.Build();
 
-            InitialiseDatabase(app);
+            app.InitialiseDatabase();
 
             return app;
         }
@@ -81,10 +81,15 @@ namespace UI
             return mauiAppBuilder;
         }
 
-        public static void InitialiseDatabase(MauiApp app)
+        public static void InitialiseDatabase(this MauiApp app)
         {
-            var databaseInitializer = app.Services.GetRequiredService<DatabaseContextInitializer>();
-            databaseInitializer.Initialise();
+            var dbContext = app.Services.GetRequiredService<DatabaseContext>();
+
+            if (!dbContext.Database.EnsureCreated())
+            {
+                var databaseInitializer = app.Services.GetRequiredService<DatabaseContextInitializer>();
+                databaseInitializer.Initialise();
+            }             
         }
     }
 }
