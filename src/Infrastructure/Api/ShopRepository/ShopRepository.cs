@@ -11,11 +11,13 @@ namespace Infrastructure.Api.ShopRepository
     {
         private readonly DatabaseContext _context;
         private readonly IMapper _mapper;
+
         public ShopRepository(DatabaseContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
+
         public async Task<List<Shop>> GetAll()
         {
             List<ShopEntity> shops = await _context.Shops
