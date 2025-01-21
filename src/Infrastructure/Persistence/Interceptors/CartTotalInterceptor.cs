@@ -29,7 +29,7 @@ namespace Infrastructure.Persistence.Interceptors
             {
                 if (entry.State is EntityState.Added or EntityState.Modified || entry.HasChangedOwnedEntities())
                 {
-                    var cart = (CartEntity)entry.Entity;
+                    CartEntity cart = entry.Entity;
                     cart.Total = cart.CartDetails.Sum(item => item.Quantity * item.Coffee!.Price);
                 }
             }
