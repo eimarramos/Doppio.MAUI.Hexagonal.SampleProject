@@ -113,6 +113,7 @@ namespace Infrastructure.Persistence
                 };
 
                 _context.Shops.AddRange(shops);
+                _context.Carts.Add(new CartEntity());
                 _context.SaveChanges();
             }
         }
