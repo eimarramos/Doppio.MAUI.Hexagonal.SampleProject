@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UI.Views.SharedViews.CheckOutView">
+    <VerticalStackLayout HeightRequest="100"
+                         BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource SecondaryDark}}">
+        <Border Margin="5,25,5,0"
+                Padding="15"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 20"
+                HeightRequest="75"
+                Background="{StaticResource ButtonGradient}">
+            <Grid RowSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       FontFamily="{StaticResource PoppinsSemiBold}"
+                       FontSize="16"
+                       Text="Check Out 2 Items" />
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       FontSize="13"
+                       Text="Your current total is $9.98" />
+                <Image Grid.RowSpan="2"
+                       Grid.Column="1"
+                       Source="right.png" />
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
+</ContentView>
