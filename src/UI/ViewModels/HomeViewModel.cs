@@ -4,7 +4,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Domain.Models;
 using System.Collections.ObjectModel;
-using UI.Views.ShopDetails;
 
 namespace UI.ViewModels
 {
