@@ -85,7 +85,7 @@ namespace UI
         {
             var dbContext = app.Services.GetRequiredService<DatabaseContext>();
 
-            if (!dbContext.Database.EnsureCreated())
+            if (dbContext.Database.EnsureCreated())
             {
                 var databaseInitializer = app.Services.GetRequiredService<DatabaseContextInitializer>();
                 databaseInitializer.Initialise();
