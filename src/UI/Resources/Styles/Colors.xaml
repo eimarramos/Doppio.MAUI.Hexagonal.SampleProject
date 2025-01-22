@@ -64,4 +64,12 @@
         <GradientStop Color="#3E3833"
                       Offset="1.0" />
     </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ButtonGradient"
+                         StartPoint="0,0"
+                         EndPoint="0,1">
+        <GradientStop Color="#C39B5E"
+                      Offset="0.0" />
+        <GradientStop Color="#6BC39B5E"
+            Offset="1.0" />
+    </LinearGradientBrush>
 </ResourceDictionary>
