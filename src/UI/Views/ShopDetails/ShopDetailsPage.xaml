@@ -5,19 +5,22 @@
              xmlns:shared="clr-namespace:UI.Views.SharedViews"
              xmlns:views="clr-namespace:UI.Views.ShopDetails.ContentViews">
     <Grid>
-        <Grid RowSpacing="15">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <views:HeroView Grid.Column="0" />
             <ScrollView Grid.Row="1">
-                <VerticalStackLayout Margin="15,0,15,0">
+                <VerticalStackLayout Margin="15,15,15,0">
                     <views:TitleView />
                     <views:LocationView />
                     <views:MenuView />
                 </VerticalStackLayout>
             </ScrollView>
+            <shared:CheckOutView Grid.Row="2"
+                                 VerticalOptions="End" />
         </Grid>
         <shared:LoaderView />
     </Grid>
