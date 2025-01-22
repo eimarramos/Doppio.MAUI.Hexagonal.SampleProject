@@ -111,6 +111,9 @@
 	  <MauiXaml Update="Views\SharedViews\BackButtonView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\SharedViews\CheckOutView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\SharedViews\MenuItemView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
