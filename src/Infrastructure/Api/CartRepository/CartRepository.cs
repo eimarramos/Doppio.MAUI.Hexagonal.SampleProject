@@ -34,7 +34,7 @@ namespace Infrastructure.Api.CartRepository
             CartEntity cart = await _context.Carts.AsNoTracking()
                                                   .Include(c => c.CartDetails)
                                                   .FirstAsync();
-            return cart.CartDetails.Count;
+            return cart.CartDetails.Sum(cd => cd.Quantity);
         }
 
         public async Task<decimal> GetTotal()
