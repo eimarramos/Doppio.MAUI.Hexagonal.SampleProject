@@ -2,14 +2,13 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.ShopDetails.ContentViews.MenuView"
-             xmlns:views="clr-namespace:UI.Views.ShopDetails.ContentViews"
-             xmlns:shared="clr-namespace:UI.Views.SharedViews">
+             xmlns:views="clr-namespace:UI.Views.ShopDetails.ContentViews">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <views:MenuHeaderView Grid.Row="0" />
-        <shared:MenuListView Grid.Row="1" />
+        <views:MenuListView Grid.Row="1" />
     </Grid>
 </ContentView>
