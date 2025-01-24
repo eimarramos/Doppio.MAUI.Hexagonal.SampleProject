@@ -62,8 +62,6 @@ namespace UI
             mauiAppBuilder.Services.AddSingleton<ProfileViewModel>();
             mauiAppBuilder.Services.AddSingleton<CartViewModel>();
             mauiAppBuilder.Services.AddSingleton<ShopDetailsViewModel>();
-            mauiAppBuilder.Services.AddSingleton<MenuViewModel>();
-
             return mauiAppBuilder;
         }
 
