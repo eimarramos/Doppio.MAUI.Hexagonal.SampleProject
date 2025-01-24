@@ -23,12 +23,17 @@
                        Grid.Column="0"
                        FontFamily="{StaticResource PoppinsSemiBold}"
                        FontSize="16"
-                       Text="Check Out 2 Items" />
+                       Text="{Binding ItemsCount, StringFormat='Check Out {0} Items'}" />
                 <Label Grid.Row="1"
                        Grid.Column="0"
                        FontFamily="{StaticResource PoppinsRegular}"
                        FontSize="13"
-                       Text="Your current total is $9.98" />
+                       Text="Your current total is " />
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       FontSize="13"
+                       Text="{Binding CurrentTotal, StringFormat='Your current total is ${0}'}" />
                 <Image Grid.RowSpan="2"
                        Grid.Column="1"
                        Source="right.png" />
