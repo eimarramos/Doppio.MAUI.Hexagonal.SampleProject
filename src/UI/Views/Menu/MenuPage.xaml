@@ -12,7 +12,7 @@
         </Grid.RowDefinitions>
         <views:Header Grid.Row="0"
                       Margin="15,43,15,0" />
-        <shared:MenuListView Grid.Row="1"
+        <views:MenuListView Grid.Row="1"
                              Margin="15,0,15,0" />
         <shared:CheckOutView Grid.Row="2"
                              VerticalOptions="End" />
