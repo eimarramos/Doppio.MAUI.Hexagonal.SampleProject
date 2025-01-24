@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Domain.Models;
 using System.Collections.ObjectModel;
+using UI.ViewModels.SharedViewModels;
 
 namespace UI.ViewModels
 {
@@ -15,21 +16,21 @@ namespace UI.ViewModels
         private ObservableCollection<Shop> _initialShops = new ObservableCollection<Shop>();
 
         [ObservableProperty]
-        private ObservableCollection<Category> categories = new ObservableCollection<Category>();
+        private ObservableCollection<Category> _categories = new ObservableCollection<Category>();
 
         [ObservableProperty]
-        private ObservableCollection<Shop> shops = new ObservableCollection<Shop>();
+        private ObservableCollection<Shop> _shops = new ObservableCollection<Shop>();
 
         [ObservableProperty]
-        private Category? selectedCategory;
+        private Category? _selectedCategory;
 
         [ObservableProperty]
-        private Shop? selectedShop;
+        private Shop? _selectedShop;
 
         private Category? _previousCategory;
 
         [ObservableProperty]
-        private string filterText = string.Empty;
+        private string _filterText = string.Empty;
 
         public HomeViewModel(CategoryService categoryService, ShopService shopService)
         {

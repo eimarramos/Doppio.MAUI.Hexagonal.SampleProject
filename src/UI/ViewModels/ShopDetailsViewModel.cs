@@ -3,17 +3,26 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Domain.Models;
 using System.Collections.ObjectModel;
+using UI.ViewModels.Interfaces;
+using UI.ViewModels.SharedViewModels;
 
 namespace UI.ViewModels
 {
-    public partial class ShopDetailsViewModel : BaseViewModel, IQueryAttributable
+    public partial class ShopDetailsViewModel : BaseViewModel, ICheckOutViewModel, IQueryAttributable
     {
         private readonly CoffeeService _coffeeService;
 
         [ObservableProperty]
-        private Shop shop = new Shop();
+        private Shop _shop = new Shop();
+
         [ObservableProperty]
-        private ObservableCollection<Coffee> coffees = new ObservableCollection<Coffee>();
+        private ObservableCollection<Coffee> _coffees = new ObservableCollection<Coffee>();
+
+        [ObservableProperty]
+        private int _itemsCount = 0;
+
+        [ObservableProperty]
+        private double _currentTotal = 0;
 
         public ShopDetailsViewModel(CoffeeService coffeeService)
         {
