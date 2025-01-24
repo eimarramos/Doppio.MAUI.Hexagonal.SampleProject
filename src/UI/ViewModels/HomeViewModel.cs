@@ -52,6 +52,7 @@ namespace UI.ViewModels
 
         private async void GoToShopDetails(Shop shop)
         {
+            if (IsBusy) return;
 
             try
             {
