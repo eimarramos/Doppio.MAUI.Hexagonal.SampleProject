@@ -49,6 +49,7 @@ namespace Infrastructure.Api.CartRepository
         {
             var cart = await _context.Carts
                                      .Include(c => c.CartDetails)
+                                     .ThenInclude(cd => cd.Coffee)
                                      .FirstAsync();
 
             var detail = cart.CartDetails.FirstOrDefault(cd => cd.Id == coffeeId);
