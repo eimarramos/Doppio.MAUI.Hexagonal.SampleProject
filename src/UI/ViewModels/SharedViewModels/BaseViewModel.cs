@@ -17,7 +17,7 @@ namespace UI.ViewModels.SharedViewModels
         [RelayCommand]
         private async Task GoBack()
         {
-            await Shell.Current.GoToAsync("..", true);
+            await Shell.Current.GoToAsync("..", false);
         }
     }
 }
