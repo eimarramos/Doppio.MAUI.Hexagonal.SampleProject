@@ -23,10 +23,13 @@ namespace UI.ViewModels
         private ObservableCollection<Coffee> _allCoffees = new ObservableCollection<Coffee>();
 
         [ObservableProperty]
-        private int _itemsCount = 10;
+        [NotifyPropertyChangedFor(nameof(CartHasItems))]
+        private int _itemsCount = 0;
+
+        public bool CartHasItems => ItemsCount > 0;
 
         [ObservableProperty]
-        private decimal _currentTotal = 120;
+        private decimal _currentTotal = 0;
 
         public ShopDetailsViewModel(CoffeeService coffeeService, CartService cartService)
         {
@@ -87,7 +90,7 @@ namespace UI.ViewModels
             }
         }
 
-        public async Task UpdateCartSummaryAsync()
+        private async Task UpdateCartSummaryAsync()
         {
             var getTotalTask = _cartService.GetTotal();
             var getItemsCountTask = _cartService.GetCurrentItemsCount();
@@ -103,8 +106,10 @@ namespace UI.ViewModels
             try
             {
                 IsBusy = true;
-
-                await GetTopThreeCoffeesAsync();
+                await Task.WhenAll(
+                    GetTopThreeCoffeesAsync(),
+                    UpdateCartSummaryAsync()
+                );
             }
             catch (Exception ex)
             {
