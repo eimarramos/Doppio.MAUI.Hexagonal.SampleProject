@@ -20,7 +20,8 @@
                 </VerticalStackLayout>
             </ScrollView>
             <shared:CheckOutView Grid.Row="2"
-                                 VerticalOptions="End" />
+                                 VerticalOptions="End"
+                                 IsVisible="{Binding CartHasItems}" />
         </Grid>
         <shared:LoaderView />
     </Grid>
