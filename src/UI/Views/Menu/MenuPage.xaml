@@ -4,18 +4,21 @@
              x:Class="UI.Views.Menu.MenuPage"
              xmlns:views="clr-namespace:UI.Views.Menu.ContentViews"
              xmlns:shared="clr-namespace:UI.Views.SharedViews">
-    <Grid RowSpacing="15">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <views:Header Grid.Row="0"
-                      Margin="15,43,15,0" />
-        <views:MenuListView Grid.Row="1"
-                             Margin="15,0,15,0" />
-        <shared:CheckOutView Grid.Row="2"
-                             VerticalOptions="End"
-                             IsVisible="{Binding CartHasItems}" />
-    </Grid>
+    <VerticalStackLayout>
+        <Grid RowSpacing="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <views:Header Grid.Row="0"
+                          Margin="15,43,15,0" />
+            <ScrollView Grid.Row="1"
+                        Margin="15,0,15,0">
+                <views:MenuListView />
+            </ScrollView>
+        </Grid>
+        <shared:CheckOutView   VerticalOptions="End"
+                              IsVisible="{Binding CartHasItems}" />
+    </VerticalStackLayout>
 </ContentPage>
