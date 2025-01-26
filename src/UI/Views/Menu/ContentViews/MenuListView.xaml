@@ -5,8 +5,7 @@
              xmlns:shared="clr-namespace:UI.Views.SharedViews">
     <CollectionView Grid.Row="1"
                     ItemsSource="{Binding AllCoffees}"
-                    SelectionMode="None"
-                    Margin="0,0,0,15">
+                    SelectionMode="None">
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical"
                              Span="1"
