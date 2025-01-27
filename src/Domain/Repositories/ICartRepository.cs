@@ -4,7 +4,7 @@ namespace Domain.Repositories
 {
     public interface ICartRepository
     {
-        Task<List<CartDetail>> GetCoffes();
+        Task<List<CartDetail>> GetCartDetails();
         Task<int> GetCurrentItemsCount();
         Task<decimal> GetTotal();
         Task AddCoffeeToCart(int coffeeId);
