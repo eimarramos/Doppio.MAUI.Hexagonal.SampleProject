@@ -12,9 +12,9 @@ namespace ApplicationLayer.Services.CartService
             _cartRepository = cartRepository;
         }
 
-        public async Task<List<CartDetail>> GetCoffes()
+        public async Task<List<CartDetail>> GetCartDetails()
         {
-            return await _cartRepository.GetCoffes();
+            return await _cartRepository.GetCartDetails();
         }
 
         public async Task<int> GetCurrentItemsCount()
