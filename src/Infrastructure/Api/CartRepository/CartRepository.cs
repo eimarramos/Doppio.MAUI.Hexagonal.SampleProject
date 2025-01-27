@@ -18,7 +18,7 @@ namespace Infrastructure.Api.CartRepository
             _mapper = mapper;
         }
 
-        public async Task<List<CartDetail>> GetCoffes()
+        public async Task<List<CartDetail>> GetCartDetails()
         {
             CartEntity cart = await _context.Carts.AsNoTracking()
                                                   .Include(c => c.CartDetails)
