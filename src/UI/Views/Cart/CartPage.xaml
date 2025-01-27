@@ -3,7 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.Cart.CartPage"
              xmlns:views="clr-namespace:UI.Views.Cart"
-             xmlns:shared="clr-namespace:UI.Views.SharedViews">
+             xmlns:shared="clr-namespace:UI.Views.SharedViews"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:UI.ViewModels"
+             x:DataType="vm:CartViewModel">
+    <ContentPage.Behaviors>
+        <mct:EventToCommandBehavior Command="{Binding GetCartDetailsCommand}"
+                                    EventName="Appearing" />
+        <mct:EventToCommandBehavior Command="{Binding DisappearingCommand}"
+                                    EventName="Disappearing" />
+    </ContentPage.Behaviors>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
