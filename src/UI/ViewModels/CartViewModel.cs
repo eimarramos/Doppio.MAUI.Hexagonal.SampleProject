@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using ApplicationLayer.Services.CartService;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using Domain.Models;
 using UI.ViewModels.SharedViewModels;
 
@@ -18,17 +17,17 @@ namespace UI.ViewModels
         {
             Title = "Cart";
             _cartService = cartService;
+
+            LoadDataAsync();
         }
 
-        [RelayCommand]
-        private async Task GetCartDetails()
+        public async void LoadDataAsync()
         {
             try
             {
                 IsBusy = true;
 
-                var cartDetails = await _cartService.GetCartDetails();
-                CartDetails = new ObservableCollection<CartDetail>(cartDetails);
+                await GetCartDetails();
             }
             catch (Exception ex)
             {
@@ -40,10 +39,10 @@ namespace UI.ViewModels
             }
         }
 
-        [RelayCommand]
-        private void Disappearing()
+        private async Task GetCartDetails()
         {
-
+            var cartDetails = await _cartService.GetCartDetails();
+            CartDetails = new ObservableCollection<CartDetail>(cartDetails);
         }
     }
 }
