@@ -13,6 +13,8 @@ namespace UI.ViewModels
         private readonly CoffeeService _coffeeService;
         private readonly CartService _cartService;
 
+        private readonly CartViewModel _cartViewModel;
+
         [ObservableProperty]
         private Shop _shop = new Shop();
 
@@ -31,11 +33,12 @@ namespace UI.ViewModels
         [ObservableProperty]
         private decimal _currentTotal = 0;
 
-        public ShopDetailsViewModel(CoffeeService coffeeService, CartService cartService)
+        public ShopDetailsViewModel(CoffeeService coffeeService, CartService cartService, CartViewModel cartViewModel)
         {
             Title = "Menu";
             _coffeeService = coffeeService;
             _cartService = cartService;
+            _cartViewModel = cartViewModel;
         }
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
@@ -44,6 +47,26 @@ namespace UI.ViewModels
             {
                 Shop = shop;
                 LoadDataAsync();
+            }
+        }
+
+        public async void LoadDataAsync()
+        {
+            try
+            {
+                IsBusy = true;
+                await Task.WhenAll(
+                    GetTopThreeCoffeesAsync(),
+                    GetCartSummaryAsync()
+                );
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
 
@@ -78,7 +101,9 @@ namespace UI.ViewModels
 
                 await _cartService.AddCoffeeToCart(coffeeId);
 
-                await UpdateCartSummaryAsync();
+                await GetCartSummaryAsync();
+
+                UpdateCartViewModel();
             }
             catch (Exception e)
             {
@@ -90,7 +115,7 @@ namespace UI.ViewModels
             }
         }
 
-        private async Task UpdateCartSummaryAsync()
+        private async Task GetCartSummaryAsync()
         {
             var getTotalTask = _cartService.GetTotal();
             var getItemsCountTask = _cartService.GetCurrentItemsCount();
@@ -99,26 +124,6 @@ namespace UI.ViewModels
 
             CurrentTotal = await getTotalTask;
             ItemsCount = await getItemsCountTask;
-        }
-
-        public async void LoadDataAsync()
-        {
-            try
-            {
-                IsBusy = true;
-                await Task.WhenAll(
-                    GetTopThreeCoffeesAsync(),
-                    UpdateCartSummaryAsync()
-                );
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
         }
 
         private async Task GetTopThreeCoffeesAsync()
@@ -137,6 +142,11 @@ namespace UI.ViewModels
             if (coffees == null) return;
 
             AllCoffees = new ObservableCollection<Coffee>(coffees);
+        }
+
+        private void UpdateCartViewModel()
+        {
+            _cartViewModel.LoadDataAsync();
         }
     }
 }
