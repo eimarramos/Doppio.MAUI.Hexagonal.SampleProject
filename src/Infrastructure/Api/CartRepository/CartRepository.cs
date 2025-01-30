@@ -22,6 +22,7 @@ namespace Infrastructure.Api.CartRepository
         {
             CartEntity cart = await _context.Carts.AsNoTracking()
                                                   .Include(c => c.CartDetails)
+                                                  .ThenInclude(cd => cd.Coffee)
                                                   .FirstAsync();
 
             List<CartDetail> cartDetailsMapped = _mapper.Map<List<CartDetail>>(cart.CartDetails);
@@ -81,13 +82,14 @@ namespace Infrastructure.Api.CartRepository
 
         public async Task RemoveCoffeeFromCart(int coffeeId)
         {
-            CartEntity cart = await _context.Carts.AsNoTracking()
-                                                  .Include(c => c.CartDetails)
+            CartEntity cart = await _context.Carts.Include(c => c.CartDetails)
+                                                  .ThenInclude(cd => cd.Coffee)
                                                   .FirstAsync();
 
             if (cart.CartDetails.Any(d => d.Coffee?.Id == coffeeId))
             {
-                CartDetailEntity detail = cart.CartDetails.First(cd => cd.Coffee?.Id == coffeeId);
+                var detail = cart.CartDetails.First(cd => cd.Coffee?.Id == coffeeId);
+
                 if (detail.Quantity > 1)
                 {
                     detail.Quantity--;
