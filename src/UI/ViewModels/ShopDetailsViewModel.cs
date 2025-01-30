@@ -148,5 +148,23 @@ namespace UI.ViewModels
         {
             _cartViewModel.LoadDataAsync();
         }
+
+        [RelayCommand]
+        private async Task GoToCart()
+        {
+            try
+            {
+                IsBusy = true;
+                await Shell.Current.GoToAsync("///cart");
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
     }
 }

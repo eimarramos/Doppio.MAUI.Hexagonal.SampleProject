@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using ApplicationLayer.Services.CartService;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Domain.Models;
 using UI.ViewModels.SharedViewModels;
 
@@ -43,6 +44,48 @@ namespace UI.ViewModels
         {
             var cartDetails = await _cartService.GetCartDetails();
             CartDetails = new ObservableCollection<CartDetail>(cartDetails);
+        }
+
+        [RelayCommand]
+        private async Task AddCoffeeToCart(int coffeId)
+        {
+            try
+            {
+                IsBusy = true;
+
+                await _cartService.AddCoffeeToCart(coffeId);
+
+                await GetCartDetails();
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        [RelayCommand]
+        private async Task RemoveCoffeeFromCart(int coffeId)
+        {
+            try
+            {
+                IsBusy = true;
+
+                await _cartService.RemoveCoffeeFromCart(coffeId);
+
+                await GetCartDetails();
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }
