@@ -18,30 +18,23 @@ namespace Infrastructure.Api.CoffeeRepository
         }
         public async Task<List<Coffee>> GetAllByShopId(int shopId)
         {
-            ShopEntity? shop = await _context.Shops
-                                             .AsNoTracking()
-                                             .Include(s => s.Coffees)
-                                             .FirstOrDefaultAsync(c => c.Id == shopId);
-
-            if (shop == null) return new List<Coffee>();
-
-            List<CoffeeEntity> coffees = shop.Coffees.ToList();
+            List<CoffeeEntity> coffees = await _context.Coffees
+                                                        .AsNoTracking()
+                                                        .Include(c => c.Shops)
+                                                        .Where(c => c.Shops.Any(s => s.Id == shopId))
+                                                        .ToListAsync();
 
             return _mapper.Map<List<Coffee>>(coffees);
         }
 
         public async Task<List<Coffee>> GetTopThreeByShopId(int shopId)
         {
-            var shop = await _context.Shops
-                                     .AsNoTracking()
-                                     .Include(s => s.Coffees)
-                                     .FirstOrDefaultAsync(c => c.Id == shopId);
-
-            if (shop == null) return new List<Coffee>();
-
-            List<CoffeeEntity> topThreeCoffees = shop.Coffees
-                                                     .Take(3)
-                                                     .ToList();
+            List<CoffeeEntity> topThreeCoffees = await _context.Coffees
+                                                        .AsNoTracking()
+                                                        .Include(c => c.Shops)
+                                                        .Where(c => c.Shops.Any(s => s.Id == shopId))
+                                                        .Take(3)
+                                                        .ToListAsync();
 
             return _mapper.Map<List<Coffee>>(topThreeCoffees);
         }
