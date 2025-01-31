@@ -10,6 +10,9 @@
                 StrokeShape="RoundRectangle 20"
                 HeightRequest="75"
                 Background="{StaticResource ButtonGradient}">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GoToCartCommand}" />
+            </Border.GestureRecognizers>
             <Grid RowSpacing="5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
