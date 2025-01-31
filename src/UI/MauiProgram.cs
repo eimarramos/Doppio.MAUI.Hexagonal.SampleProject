@@ -3,6 +3,7 @@ using CommunityToolkit.Maui;
 using Infrastructure;
 using Infrastructure.Persistence;
 using Microsoft.Extensions.Logging;
+using UI.Services;
 using UI.ViewModels;
 using UI.Views.Cart;
 using UI.Views.Home;
@@ -50,6 +51,7 @@ namespace UI
             mauiAppBuilder.Services.AddInfrastructureServices();
             mauiAppBuilder.Services.AddApplicationServices();
 
+            mauiAppBuilder.Services.AddSingleton<CartActionsService>();
             return mauiAppBuilder;
         }
 
