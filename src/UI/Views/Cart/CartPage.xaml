@@ -2,23 +2,31 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.Cart.CartPage"
-             xmlns:views="clr-namespace:UI.Views.Cart"
+             xmlns:views="clr-namespace:UI.Views.Cart.ContentViews"
              xmlns:shared="clr-namespace:UI.Views.SharedViews"
-             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:vm="clr-namespace:UI.ViewModels"
              x:DataType="vm:CartViewModel">
-    <ContentPage.Behaviors>
-        <mct:EventToCommandBehavior Command="{Binding GetCartDetailsCommand}"
-                                    EventName="Appearing" />
-        <mct:EventToCommandBehavior Command="{Binding DisappearingCommand}"
-                                    EventName="Disappearing" />
-    </ContentPage.Behaviors>
-    <Grid>
+    <Grid RowSpacing="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <shared:TitleView Grid.Row="0" />
+        <ScrollView Grid.Row="1"
+                    Margin="15,0,15,0">
+            <CollectionView ItemsSource="{Binding CartDetails}"
+                            SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     VerticalItemSpacing="15" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <views:CartDetailView />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
     </Grid>
 </ContentPage>
