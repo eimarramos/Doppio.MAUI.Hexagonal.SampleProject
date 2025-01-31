@@ -3,6 +3,7 @@ using ApplicationLayer.Services.CartService;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Domain.Models;
+using UI.Services;
 using UI.ViewModels.SharedViewModels;
 
 namespace UI.ViewModels
@@ -10,15 +11,24 @@ namespace UI.ViewModels
     public partial class CartViewModel : BaseViewModel
     {
         private readonly CartService _cartService;
+        private readonly CartActionsService _cartActionsService;
 
         [ObservableProperty]
         private ObservableCollection<CartDetail> _cartDetails = [];
 
-        public CartViewModel(CartService cartService)
+        public CartViewModel(CartService cartService, CartActionsService cartActionsService)
         {
             Title = "Cart";
             _cartService = cartService;
+            _cartActionsService = cartActionsService;
 
+            _cartActionsService.CartUpdated += OnCartUpdated;
+
+            LoadDataAsync();
+        }
+
+        private void OnCartUpdated()
+        {
             LoadDataAsync();
         }
 
@@ -55,7 +65,7 @@ namespace UI.ViewModels
 
                 await _cartService.AddCoffeeToCart(coffeId);
 
-                await GetCartDetails();
+                _cartActionsService.UpdateCart();
             }
             catch (Exception ex)
             {
@@ -76,7 +86,7 @@ namespace UI.ViewModels
 
                 await _cartService.RemoveCoffeeFromCart(coffeId);
 
-                await GetCartDetails();
+                _cartActionsService.UpdateCart();
             }
             catch (Exception ex)
             {
