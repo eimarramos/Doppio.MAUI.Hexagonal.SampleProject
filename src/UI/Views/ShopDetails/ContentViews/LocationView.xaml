@@ -2,11 +2,11 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.ShopDetails.ContentViews.LocationView">
-    <Border HeightRequest="240"
+    <Border MinimumHeightRequest="240"
             StrokeThickness="0"
             StrokeShape="RoundRectangle 20">
         <Grid>
-            <Image Source="map.png "
+            <Image Source="map.png"
                    Aspect="AspectFill" />
             <VerticalStackLayout VerticalOptions="EndAndExpand"
                                  MinimumHeightRequest="50"
