@@ -4,6 +4,7 @@ using ApplicationLayer.Services.CoffeeService;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Domain.Models;
+using UI.Services;
 using UI.ViewModels.SharedViewModels;
 
 namespace UI.ViewModels
@@ -12,8 +13,7 @@ namespace UI.ViewModels
     {
         private readonly CoffeeService _coffeeService;
         private readonly CartService _cartService;
-
-        private readonly CartViewModel _cartViewModel;
+        private readonly CartActionsService _cartActionsService;
 
         [ObservableProperty]
         private Shop _shop = new Shop();
@@ -33,12 +33,15 @@ namespace UI.ViewModels
         [ObservableProperty]
         private decimal _currentTotal = 0;
 
-        public ShopDetailsViewModel(CoffeeService coffeeService, CartService cartService, CartViewModel cartViewModel)
+        public ShopDetailsViewModel(CoffeeService coffeeService, CartService cartService, CartActionsService cartActionsService)
         {
             Title = "Menu";
             _coffeeService = coffeeService;
             _cartService = cartService;
-            _cartViewModel = cartViewModel;
+
+            _cartActionsService = cartActionsService;
+
+            _cartActionsService.CartUpdated += OnCartUpdated;
         }
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
@@ -101,9 +104,7 @@ namespace UI.ViewModels
 
                 await _cartService.AddCoffeeToCart(coffeeId);
 
-                await GetCartSummaryAsync();
-
-                UpdateCartViewModel();
+                _cartActionsService.UpdateCart();
             }
             catch (Exception e)
             {
@@ -144,10 +145,6 @@ namespace UI.ViewModels
             AllCoffees = new ObservableCollection<Coffee>(coffees);
         }
 
-        private void UpdateCartViewModel()
-        {
-            _cartViewModel.LoadDataAsync();
-        }
 
         [RelayCommand]
         private async Task GoToCart()
@@ -165,6 +162,16 @@ namespace UI.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        private void OnCartUpdated()
+        {
+            UpdateCheckOutView();
+        }
+
+        private async void UpdateCheckOutView()
+        {
+            await GetCartSummaryAsync();
         }
     }
 }
