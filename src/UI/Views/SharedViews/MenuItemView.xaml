@@ -2,7 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.SharedViews.MenuItemView">
-    <Border HeightRequest="96"
+    <Border MinimumHeightRequest="96"
             StrokeThickness="0"
             StrokeShape="RoundRectangle 20"
             BackgroundColor="{StaticResource SecondaryDark}"
