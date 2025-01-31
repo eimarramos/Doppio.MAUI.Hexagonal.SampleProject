@@ -53,7 +53,7 @@ namespace Infrastructure.Api.CartRepository
                                      .ThenInclude(cd => cd.Coffee)
                                      .FirstAsync();
 
-            var detail = cart.CartDetails.FirstOrDefault(cd => cd.Id == coffeeId);
+            var detail = cart.CartDetails.FirstOrDefault(cd => cd.Coffee?.Id == coffeeId);
 
             if (detail != null)
             {
