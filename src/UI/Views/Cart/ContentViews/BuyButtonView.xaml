@@ -2,4 +2,32 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.Cart.ContentViews.BuyButtonView">
+    <VerticalStackLayout HeightRequest="100"
+                         BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource SecondaryDark}}"
+                         Padding="5,25,5,0">
+        <Border Padding="15"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 20"
+                HeightRequest="75"
+                Background="{StaticResource ButtonGradient}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontFamily="{StaticResource PoppinsSemiBold}"
+                       FontSize="24"
+                       Text="Buy now" />
+                <Image HeightRequest="24"
+                       HorizontalOptions="End"
+                       Source="right.png" />
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
 </ContentView>
