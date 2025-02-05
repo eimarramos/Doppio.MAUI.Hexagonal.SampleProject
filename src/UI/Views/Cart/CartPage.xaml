@@ -6,17 +6,19 @@
              xmlns:shared="clr-namespace:UI.Views.SharedViews"
              xmlns:vm="clr-namespace:UI.ViewModels"
              x:DataType="vm:CartViewModel">
-    <Grid RowSpacing="15">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <shared:TitleView Grid.Row="0" />
         <ScrollView Grid.Row="1"
-                    Margin="15,0,15,0">
+                    Margin="15,15,15,0">
             <CollectionView ItemsSource="{Binding CartDetails}"
-                            SelectionMode="None">
+                            SelectionMode="None"
+                            Margin="0,0,0,15">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
                                      VerticalItemSpacing="15" />
@@ -28,5 +30,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </ScrollView>
+        <views:BuyButtonView Grid.Row="2" 
+                             IsVisible="{Binding CartHasItems}"/>
     </Grid>
 </ContentPage>
