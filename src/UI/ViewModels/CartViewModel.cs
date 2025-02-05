@@ -14,7 +14,10 @@ namespace UI.ViewModels
         private readonly CartActionsService _cartActionsService;
 
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CartHasItems))]
         private ObservableCollection<CartDetail> _cartDetails = [];
+
+        public bool CartHasItems => CartDetails.Count > 0;
 
         public CartViewModel(CartService cartService, CartActionsService cartActionsService)
         {
