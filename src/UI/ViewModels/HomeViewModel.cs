@@ -86,7 +86,6 @@ namespace UI.ViewModels
                 ClearCategorySelection();
                 return;
             }
-
             _previousCategory = SelectedCategory;
         }
 
