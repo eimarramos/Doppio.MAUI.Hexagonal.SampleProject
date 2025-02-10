@@ -19,6 +19,9 @@ namespace UI.ViewModels
 
         public bool CartHasItems => CartDetails.Count > 0;
 
+        [ObservableProperty]
+        private decimal _currentTotal = 0;
+
         public CartViewModel(CartService cartService, CartActionsService cartActionsService)
         {
             Title = "Cart";
@@ -40,8 +43,10 @@ namespace UI.ViewModels
             try
             {
                 IsBusy = true;
-
-                await GetCartDetails();
+                await Task.WhenAll(
+                    GetCartDetailsAsync(),
+                    GetTotalAsync()
+                );
             }
             catch (Exception ex)
             {
@@ -53,10 +58,15 @@ namespace UI.ViewModels
             }
         }
 
-        private async Task GetCartDetails()
+        private async Task GetCartDetailsAsync()
         {
             var cartDetails = await _cartService.GetCartDetails();
             CartDetails = new ObservableCollection<CartDetail>(cartDetails);
+        }
+
+        private async Task GetTotalAsync()
+        {
+            CurrentTotal = await _cartService.GetTotal(); ;
         }
 
         [RelayCommand]
