@@ -12,22 +12,27 @@
                 StrokeShape="RoundRectangle 20"
                 HeightRequest="75"
                 Background="{StaticResource ButtonGradient}">
-            <Grid>
+            <Grid RowSpacing="5">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="0"
                        Grid.Column="0"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"
                        FontFamily="{StaticResource PoppinsSemiBold}"
-                       FontSize="24"
+                       FontSize="16"
                        Text="Buy now" />
-                <Image HeightRequest="24"
-                       HorizontalOptions="End"
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       FontSize="13"
+                       Text="{Binding CurrentTotal, StringFormat='Your current total is ${0}'}" />
+                <Image Grid.RowSpan="2"
+                       Grid.Column="1"
                        Source="right.png" />
             </Grid>
         </Border>
