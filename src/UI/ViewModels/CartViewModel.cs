@@ -14,10 +14,11 @@ namespace UI.ViewModels
         private readonly CartActionsService _cartActionsService;
 
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(CartHasItems))]
+        [NotifyPropertyChangedFor(nameof(CartHasItems), nameof(CartIsEmpty))]
         private ObservableCollection<CartDetail> _cartDetails = [];
 
         public bool CartHasItems => CartDetails.Count > 0;
+        public bool CartIsEmpty => !CartHasItems;
 
         [ObservableProperty]
         private decimal _currentTotal = 0;
