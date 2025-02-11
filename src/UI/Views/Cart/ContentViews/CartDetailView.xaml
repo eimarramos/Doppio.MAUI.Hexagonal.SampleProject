@@ -21,16 +21,21 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <ImageButton Grid.Column="2"
-                         Grid.Row="0"
-                         Source="plus.png"
-                         Aspect="Center"
-                         Rotation="45"
-                         VerticalOptions="Start"
-                         HorizontalOptions="End" />
+            <HorizontalStackLayout Grid.Column="3"
+                                   Grid.Row="0"
+                                   HorizontalOptions="End"
+                                   VerticalOptions="Start"
+                                   HeightRequest="24"
+                                   WidthRequest="35">
+                <ImageButton Source="plus.png"
+                             Rotation="45"
+                             Aspect="AspectFit"
+                             BackgroundColor="Transparent">
+                </ImageButton>
+            </HorizontalStackLayout>
             <Border Grid.Column="0"
-                    Grid.Row="0"
-                    Grid.RowSpan="4"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
                     StrokeThickness="0"
                     StrokeShape="RoundRectangle 20">
                 <Image Aspect="AspectFill"
@@ -38,8 +43,7 @@
             </Border>
             <Label Grid.Column="1"
                    Grid.ColumnSpan="2"
-                   Grid.Row="0"
-                   VerticalOptions="EndAndExpand">
+                   Grid.Row="1">
                 <Label.FormattedText>
                     <FormattedString>
                         <Span TextColor="{StaticResource White}"
@@ -64,7 +68,7 @@
                    FontFamily="{StaticResource PoppinsRegular}"
                    FontSize="13" />
             <Border Grid.Column="2"
-                    Grid.Row="4"
+                    Grid.Row="3"
                     StrokeShape="RoundRectangle 20"
                     StrokeThickness="1.25"
                     Stroke="{StaticResource TagBorderSelected}">
