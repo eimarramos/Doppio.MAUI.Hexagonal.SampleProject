@@ -11,11 +11,13 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <shared:TitleView Grid.Row="0" />
+        <views:EmptyCartView Grid.Row="1"
+                             IsVisible="{Binding CartIsEmpty}" />
         <ScrollView Grid.Row="1"
-                    Margin="15,15,15,0">
+                    Margin="15,15,15,0"
+                    IsVisible="{Binding CartHasItems}">
             <CollectionView ItemsSource="{Binding CartDetails}"
                             SelectionMode="None"
                             Margin="0,0,0,15">
@@ -30,7 +32,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </ScrollView>
-        <views:BuyButtonView Grid.Row="2" 
-                             IsVisible="{Binding CartHasItems}"/>
+        <views:BuyButtonView Grid.Row="2"
+                             IsVisible="{Binding CartHasItems}" />
     </Grid>
 </ContentPage>
