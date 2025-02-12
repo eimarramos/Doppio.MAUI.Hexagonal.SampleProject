@@ -13,6 +13,7 @@ namespace Infrastructure.Persistence
         public DbSet<CoffeeEntity> Coffees { get; set; } = null!;
         public DbSet<CartEntity> Carts { get; set; } = null!;
         public DbSet<CartDetailEntity> CartDetails { get; set; } = null!;
+        public DbSet<Notify> Notifies { get; set; } = null!;
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
