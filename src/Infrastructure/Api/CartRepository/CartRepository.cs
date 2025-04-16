@@ -101,5 +101,21 @@ namespace Infrastructure.Api.CartRepository
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task RemoveOneTypeOfCoffee(int coffeeId)
+        {
+            CartEntity cart = await _context.Carts.Include(c => c.CartDetails)
+                                                  .ThenInclude(cd => cd.Coffee)
+                                                  .FirstAsync();
+
+            if (cart.CartDetails.Any(d => d.Coffee?.Id == coffeeId))
+            {
+                var detail = cart.CartDetails.First(cd => cd.Coffee?.Id == coffeeId);
+
+                cart.CartDetails.Remove(detail);
+
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }
