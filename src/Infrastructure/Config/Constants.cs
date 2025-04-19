@@ -11,7 +11,5 @@
                 return Path.Combine(appDataDirectory, DatabaseFilename);
             }
         }
-
-
     }
 }
