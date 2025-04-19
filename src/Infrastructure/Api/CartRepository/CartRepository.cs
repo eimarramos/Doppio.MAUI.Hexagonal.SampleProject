@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Reflection.Metadata;
+using AutoMapper;
 using Domain.Models;
 using Domain.Repositories;
 using Infrastructure.Entities;
@@ -102,7 +103,7 @@ namespace Infrastructure.Api.CartRepository
             }
         }
 
-        public async Task RemoveOneTypeOfCoffee(int coffeeId)
+        public async Task RemoveTypeOfCoffeeFromCart(int coffeeId)
         {
             CartEntity cart = await _context.Carts.Include(c => c.CartDetails)
                                                   .ThenInclude(cd => cd.Coffee)
