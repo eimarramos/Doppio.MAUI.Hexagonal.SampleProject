@@ -6,6 +6,7 @@ namespace Infrastructure.Entities
     {
         public CoffeeEntity? Coffee { get; set; }
         public CartEntity? Cart { get; set; }
+        public int CartId { get; set; }
         public int Quantity { get; set; }
     }
 }
