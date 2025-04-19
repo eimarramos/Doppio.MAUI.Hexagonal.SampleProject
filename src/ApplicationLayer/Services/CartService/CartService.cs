@@ -36,5 +36,10 @@ namespace ApplicationLayer.Services.CartService
         {
             await _cartRepository.RemoveCoffeeFromCart(coffeeId);
         }
+
+        public async Task RemoveTypeOfCoffeeFromCart(int coffeeId)
+        {
+            await _cartRepository.RemoveTypeOfCoffeeFromCart(coffeeId);
+        }
     }
 }
