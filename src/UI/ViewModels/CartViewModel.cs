@@ -111,5 +111,26 @@ namespace UI.ViewModels
                 IsBusy = false;
             }
         }
+
+        [RelayCommand]
+        private async Task RemoveTypeOfCoffeeFromCart(int coffeId)
+        {
+            try
+            {
+                IsBusy = true;
+
+                await _cartService.RemoveTypeOfCoffeeFromCart(coffeId);
+
+                _cartActionsService.UpdateCart();
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
     }
 }
