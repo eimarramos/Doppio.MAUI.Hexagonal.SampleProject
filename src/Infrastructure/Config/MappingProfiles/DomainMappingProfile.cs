@@ -15,6 +15,7 @@ namespace Infrastructure.Config.MappingProfiles
             CreateMap<CoffeeEntity, Coffee>();
             CreateMap<CartEntity, Cart>();
             CreateMap<CartDetailEntity, CartDetail>();
+            CreateMap<PromotionEntity, Promotion>();
         }
     }
 }
