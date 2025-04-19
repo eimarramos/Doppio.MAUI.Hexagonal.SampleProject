@@ -1,4 +1,5 @@
-﻿using Domain.Repositories;
+﻿using System.Reflection;
+using Domain.Repositories;
 using Infrastructure.Api.CartRepository;
 using Infrastructure.Api.CategoryRepository;
 using Infrastructure.Api.CoffeeRepository;
@@ -9,7 +10,6 @@ using Infrastructure.Persistence.Interceptors;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 
 namespace Infrastructure
 {
