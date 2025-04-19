@@ -9,5 +9,6 @@ namespace Domain.Repositories
         Task<decimal> GetTotal();
         Task AddCoffeeToCart(int coffeeId);
         Task RemoveCoffeeFromCart(int coffeeId);
+        Task RemoveTypeOfCoffeeFromCart(int coffeeId);
     }
 }
