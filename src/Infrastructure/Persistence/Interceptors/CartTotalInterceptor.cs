@@ -1,5 +1,6 @@
 ﻿using Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Infrastructure.Persistence.Interceptors
@@ -24,33 +25,30 @@ namespace Infrastructure.Persistence.Interceptors
         {
             if (context == null) return;
 
-            /**
+
             foreach (var entry in context.ChangeTracker.Entries<CartEntity>())
             {
-                if (entry.State is EntityState.Added or EntityState.Modified || entry.HasChangedOwnedEntities())
+                var cart = entry.Entity;
+
+                var hasChanges = context.ChangeTracker.Entries<CartDetailEntity>()
+                                                      .Any(cd => cd.Entity.CartId == cart.Id &&
+                                                                 (cd.State == EntityState.Added ||
+                                                                 cd.State == EntityState.Modified ||
+                                                                 cd.State == EntityState.Deleted));
+
+                if (hasChanges)
                 {
-                    CartEntity cart = entry.Entity;
                     cart.Total = cart.CartDetails.Sum(item => item.Quantity * item.Coffee!.Price);
-                }
-            }
-            **/
-            foreach (var entry in context.ChangeTracker.Entries<CartDetailEntity>())
-            {
-                if (entry.State is EntityState.Added or EntityState.Modified || entry.State == EntityState.Deleted)
-                {
-                    var cart = entry.Entity.Cart;
-                    if (cart != null)
-                    {
-                        cart.Total = cart.CartDetails.Sum(item => item.Quantity * item.Coffee!.Price);
-                    }
                 }
             }
         }
     }
     /**
      * 
-     * Probably need entity config relationship to use it
-     * 
+     * This function is used to check if the entity has changed owned entities.
+     * Don't detect all changes.
+     *
+     **/
     public static class Extensions
     {
         public static bool HasChangedOwnedEntities(this EntityEntry entry) =>
@@ -61,5 +59,4 @@ namespace Infrastructure.Persistence.Interceptors
              r.TargetEntry.State == EntityState.Modified ||
              r.TargetEntry.State == EntityState.Deleted));
     }
-    **/
 }
