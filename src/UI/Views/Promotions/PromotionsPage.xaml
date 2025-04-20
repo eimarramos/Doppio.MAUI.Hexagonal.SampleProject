@@ -2,13 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.Promotions.PromotionsPage"
-             xmlns:shared="clr-namespace:UI.Views.SharedViews">
+             xmlns:shared="clr-namespace:UI.Views.SharedViews"
+             xmlns:views="clr-namespace:UI.Views.Promotions.ContentViews">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <shared:TitleView Grid.Row="0" />
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <shared:TitleView Grid.Row="0" />
+            <views:PromotionCardView Grid.Row="1"
+                                     Margin="15,0,15,0" />
+        </Grid>
     </Grid>
 </ContentPage>
