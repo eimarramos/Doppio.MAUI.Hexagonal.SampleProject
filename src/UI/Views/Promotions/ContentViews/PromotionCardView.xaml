@@ -1,18 +1,83 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UI.Views.Promotions.ContentViews.PromotionCardView">
-        <Border MinimumHeightRequest="407"
-                MinimumWidthRequest="363"
-                StrokeShape="RoundRectangle 20"
-                BackgroundColor="{StaticResource Secondary}"
-                Stroke="{StaticResource TagBorderSelected}"
-                StrokeThickness="1.25">
-            <Grid>
+             x:Class="UI.Views.Promotions.ContentViews.PromotionCardView"
+             xmlns:models="clr-namespace:Domain.Models;assembly=Domain"
+             x:DataType="models:Promotion">
+    <Border MinimumHeightRequest="407"
+            MinimumWidthRequest="363"
+            StrokeShape="RoundRectangle 20"
+            BackgroundColor="{StaticResource Secondary}"
+            Stroke="{StaticResource TagBorderSelected}"
+            StrokeThickness="1.25">
+        <VerticalStackLayout Spacing="15">
+            <Grid Padding="15,15,15,0"
+                  RowSpacing="5"
+                  ColumnSpacing="15">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label Text="PROMOTION" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0"
+                       Grid.Row="0"
+                       Source="{Binding Coffee.ImageSource}" />
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontSize="16"
+                       FontFamily="{StaticResource PoppinsSemiBold}"
+                       MaximumWidthRequest="200" />
+                <Label Grid.Column="1"
+                       Grid.Row="1"
+                       Text="{Binding ExpirationString}"
+                       FontSize="13"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       MaximumWidthRequest="200" />
             </Grid>
-        </Border>
+            <Border StrokeThickness="0"
+                    StrokeShape="RoundRectangle 20">
+                <Grid>
+                    <Image Source="{Binding Shop.ImageSource}"
+                           Aspect="AspectFill" />
+                    <VerticalStackLayout VerticalOptions="EndAndExpand"
+                                         MinimumHeightRequest="85"
+                                         Spacing="5"
+                                         Padding="15"
+                                         BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource SecondaryDark}}">
+                        <Grid HeightRequest="31">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Shop.Name}"
+                                   FontSize="20"
+                                   FontFamily="PoppinsSemiBold"
+                                   TextColor="{StaticResource White}"
+                                   VerticalTextAlignment="Center"
+                                   Grid.Column="0" />
+                            <HorizontalStackLayout Spacing="3"
+                                                   Grid.Column="1">
+                                <Label Text="{Binding Shop.Rating}"
+                                       FontSize="20"
+                                       FontFamily="PoppinsSemiBold"
+                                       TextColor="{StaticResource White}"
+                                       VerticalTextAlignment="Center" />
+                                <Image Source="star.png"
+                                       HeightRequest="18"
+                                       WidthRequest="18" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                        <Label Text="{Binding Shop.CategoriesString}"
+                               FontSize="13"
+                               FontFamily="PoppinsRegular"
+                               TextColor="{StaticResource White}"
+                               VerticalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+    </Border>
 </ContentView>
