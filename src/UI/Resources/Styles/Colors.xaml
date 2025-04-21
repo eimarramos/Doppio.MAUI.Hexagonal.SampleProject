@@ -14,6 +14,8 @@
     <Color x:Key="Secondary">#010C1E</Color>
     <Color x:Key="SecondaryDark">#010C1E</Color>
 
+    <Color x:Key="Warning">#D04040</Color>
+
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Magenta">#D600AA</Color>

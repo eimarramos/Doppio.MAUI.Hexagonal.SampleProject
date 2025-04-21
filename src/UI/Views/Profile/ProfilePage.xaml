@@ -3,12 +3,109 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Views.Profile.ProfilePage"
              xmlns:shared="clr-namespace:UI.Views.SharedViews">
-    <Grid>
+    <Grid Padding="18,0,18,0"
+          RowSpacing="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <shared:TitleView Grid.Row="0" />
+        <Image Grid.Row="1"
+               Source="user_profile.png"
+               Aspect="AspectFit" />
+        <Label Grid.Row="1"
+               Grid.Column="1"
+               Text="Erik 
+                   Nordstrom"
+               FontSize="32"
+               FontFamily="{StaticResource PoppinsRegular}" />
+        <Border Grid.Row="2"
+                Grid.ColumnSpan="2"
+                BackgroundColor="{StaticResource Secondary}"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 20">
+            <VerticalStackLayout>
+                <Label Text="Reviews"
+                       FontSize="14"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       Margin="14.5,15,0,8" />
+                <BoxView HeightRequest="1"
+                         Background="{StaticResource Primary}" />
+                <Label Text="Comments"
+                       FontSize="14"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       Margin="14.5,15,0,8" />
+                <BoxView HeightRequest="1"
+                         Background="{StaticResource Primary}" />
+                <Label Text="Payments"
+                       FontSize="14"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       Margin="14.5,15,0,8" />
+                <BoxView HeightRequest="1"
+                         Background="{StaticResource Primary}" />
+                <Label Text="Complaints"
+                       FontSize="14"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       Margin="14.5,15,0,8" />
+            </VerticalStackLayout>
+        </Border>
+
+        <Border Grid.Row="3"
+                Grid.ColumnSpan="2"
+                BackgroundColor="{StaticResource Secondary}"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 20">
+            <VerticalStackLayout>
+                <Label Text="Subscriptions"
+                       FontSize="14"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       Margin="14.5,15,0,8" />
+                <BoxView HeightRequest="1"
+                         Background="{StaticResource Primary}" />
+                <Label Text="Addresses"
+                       FontSize="14"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       Margin="14.5,15,0,8" />
+                <BoxView HeightRequest="1"
+                         Background="{StaticResource Primary}" />
+                <Label Text="Cards"
+                       FontSize="14"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       Margin="14.5,15,0,8" />
+                <BoxView HeightRequest="1"
+                         Background="{StaticResource Primary}" />
+                <Label Text="Preferences"
+                       FontSize="14"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       Margin="14.5,15,0,8" />
+            </VerticalStackLayout>
+        </Border>
+        
+        <Border Grid.Row="4"
+                Grid.ColumnSpan="2"
+                BackgroundColor="{StaticResource Secondary}"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 20">
+            <VerticalStackLayout>
+                <Label Text="Display Mode"
+                       FontSize="14"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       Margin="14.5,15,0,8" />
+                <BoxView HeightRequest="1"
+                         Background="{StaticResource Primary}" />
+                <Label Text="Delete Account"
+                       FontSize="14"
+                       FontFamily="{StaticResource PoppinsRegular}"
+                       Margin="14.5,15,0,8"
+                       TextColor="{StaticResource Warning}" />
+            </VerticalStackLayout>
+        </Border>
     </Grid>
 </ContentPage>
