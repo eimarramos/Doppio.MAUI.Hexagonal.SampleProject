@@ -4,6 +4,6 @@ namespace Domain.Repositories
 {
     public interface IPromotionRepository
     {
-        Task<List<Promotion>> GetAll(int shopId);
+        Task<List<Promotion>> GetAll();
     }
 }
