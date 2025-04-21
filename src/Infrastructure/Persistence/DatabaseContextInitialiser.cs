@@ -113,6 +113,27 @@ namespace Infrastructure.Persistence
                 };
 
                 _context.Shops.AddRange(shops);
+                var shopDict = shops.ToDictionary(c => c.Name);
+
+                var promotions = new List<PromotionEntity>
+                {
+                    new PromotionEntity
+                    {
+                        Title = "Ovation is inviting you to a free black coffee at rush hour!",
+                        Shop = shopDict["Ovation"],
+                        Coffee = coffeeDict["Black"],
+                        Expiration = DateTimeOffset.Now.AddHours(3)
+                    },
+                    new PromotionEntity
+                    {
+                        Title = "Get $2 off on any drink at Murray Hill’s Cafe!",
+                        Shop = shopDict["Murray Hill’s"],
+                        Coffee = coffeeDict["Cappuccino"],
+                        Expiration = DateTimeOffset.UtcNow.AddDays(3)
+                    }
+                };
+                _context.Promotions.AddRange(promotions);
+
                 _context.Carts.Add(new CartEntity());
                 _context.SaveChanges();
             }
