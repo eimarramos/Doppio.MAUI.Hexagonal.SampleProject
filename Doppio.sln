@@ -36,6 +36,7 @@ Global
 		{DBF387BE-2AF1-44DC-B0AE-71A3A93A7035}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{DBF387BE-2AF1-44DC-B0AE-71A3A93A7035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBF387BE-2AF1-44DC-B0AE-71A3A93A7035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBF387BE-2AF1-44DC-B0AE-71A3A93A7035}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
