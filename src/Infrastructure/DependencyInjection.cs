@@ -3,6 +3,7 @@ using Domain.Repositories;
 using Infrastructure.Api.CartRepository;
 using Infrastructure.Api.CategoryRepository;
 using Infrastructure.Api.CoffeeRepository;
+using Infrastructure.Api.PromotionRepository;
 using Infrastructure.Api.ShopRepository;
 using Infrastructure.Config;
 using Infrastructure.Persistence;
@@ -39,6 +40,7 @@ namespace Infrastructure
             services.AddScoped<IShopRepository, ShopRepository>();
             services.AddScoped<ICoffeeRepository, CoffeeRepository>();
             services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<IPromotionRepository, PromotionRepository>();
 
             // Database Initializer
 
