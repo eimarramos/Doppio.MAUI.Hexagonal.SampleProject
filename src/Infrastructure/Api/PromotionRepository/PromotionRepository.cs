@@ -17,11 +17,12 @@ namespace Infrastructure.Api.PromotionRepository
             _mapper = mapper;
         }
 
-        public async Task<List<Promotion>> GetAll(int shopId)
+        public async Task<List<Promotion>> GetAll()
         {
             List<PromotionEntity> promotions = await _context.Promotions
                                                        .AsNoTracking()
                                                        .Include(p => p.Shop)
+                                                       .ThenInclude(s => s!.Categories)
                                                        .Include(p => p.Coffee)
                                                        .ToListAsync();
 
