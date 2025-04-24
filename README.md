@@ -1,7 +1,7 @@
 # ☕ .NET MAUI Sample Project  
 ### Built with .NET 9 using Entity Framework Core and Repository Pattern following Hexagonal Architecture
 
-This is a sample .NET MAUI project built with .NET 9, demonstrating a clean implementation of the **Hexagonal Architecture** design pattern. It leverages **Entity Framework Core** and the **Repository Pattern** to deliver a ready-to-use solution featuring a complete example of CRUD operations.
+This is a sample .NET MAUI project built with .NET 9, demonstrating a clean implementation of the **Hexagonal Architecture** design pattern. It leverages **Entity Framework Core 9 + SQLite** and the **Repository Pattern** to deliver a ready-to-use solution featuring a complete example of CRUD operations.
 
 ---
 
@@ -9,7 +9,7 @@ This is a sample .NET MAUI project built with .NET 9, demonstrating a clean impl
 
 - ✅ **.NET 9**
 - 📱 **.NET MAUI** (Mobile UI)
-- 🧩 **Microsoft Entity Framework Core**
+- 🧩 **Microsoft Entity Framework Core 9**
 - 🔄 **AutoMapper**
 - 📦 **Repository Pattern**
 - ⚙️ **Dependency Injection**
