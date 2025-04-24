@@ -7,8 +7,28 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <shared:TitleView Grid.Row="0" />
+        <VerticalStackLayout Grid.Row="1"
+                             VerticalOptions="CenterAndExpand"
+                             HorizontalOptions="CenterAndExpand"
+                             Spacing="20"
+                             Padding="30">
+            <Image Source="no_notifications.png"
+                   WidthRequest="60"
+                   HeightRequest="60"
+                   HorizontalOptions="Center" />
+            <Label Text="No Notifications Yet"
+                   FontFamily="{StaticResource PoppinsMedium}"
+                   FontSize="24"
+                   TextColor="{StaticResource Gray400}"
+                   HorizontalOptions="Center" />
+            <Label Text="When get notifications, they'll show up here."
+                   HorizontalTextAlignment="Center"
+                   FontFamily="{StaticResource PoppinsMedium}"
+                   FontSize="20"
+                   TextColor="{StaticResource Gray400}"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>
