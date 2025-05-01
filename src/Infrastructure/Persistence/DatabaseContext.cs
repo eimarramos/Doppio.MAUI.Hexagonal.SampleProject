@@ -6,8 +6,9 @@ namespace Infrastructure.Persistence
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext(DbContextOptions<DatabaseContext> options, IServiceProvider serviceProvider)
-        : base(options){}
+        public DatabaseContext(DbContextOptions<DatabaseContext> options)
+        : base(options) { }
+
         public DbSet<CategoryEntity> Categories { get; set; } = null!;
         public DbSet<ShopEntity> Shops { get; set; } = null!;
         public DbSet<CoffeeEntity> Coffees { get; set; } = null!;
@@ -15,6 +16,7 @@ namespace Infrastructure.Persistence
         public DbSet<CartDetailEntity> CartDetails { get; set; } = null!;
         public DbSet<Notify> Notifies { get; set; } = null!;
         public DbSet<PromotionEntity> Promotions { get; set; } = null!;
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
